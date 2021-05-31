@@ -1,0 +1,43 @@
+<mat-card style="width: 25%">
+  <h3>Email Us</h3>
+  <form (submit)="onSendEmail(emailForm)" #emailForm="ngForm">
+    <mat-form-field>
+      <input
+        placeholder="Enter Your Name"
+        type="text"
+        matInput
+        name="name"
+        color="primary"
+        ngModel
+        required
+        style="width: 100%">
+      <mat-error>Please enter your name</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        placeholder="Email or phone"
+        type="text"
+        name="contactInfo"
+        ngModel
+        matInput
+        color="primary"
+        required>
+      <mat-error>Contact Info Required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea name="name" rows="8" cols="80"
+      placeholder="What can we help you with?"
+      type="text"
+      name="content"
+      ngModel
+      matInput
+      color="primary"
+      required
+      style="width: 100%">
+
+      </textarea>
+      <mat-error>Email Content Required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="accent" style="position: relative; left:65%; bottom: 0%">Send Email</button>
+  </form>
+</mat-card>
