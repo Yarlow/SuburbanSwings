@@ -22,10 +22,10 @@
 <div class="main_content" *ngIf="!showNav || !mobile">
     <div class="header">
       <p>{{ toolbarText }}
-      <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button>
-    </p>
+        <!-- <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button> -->
+        <fa-icon *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right; padding:0; margin:0" [icon]="faBars"></fa-icon>
+      </p>
     </div>
-    <!-- <div class="header" *ngIf="toolbar === 'tech'">Learn about our tech!</div> -->
 
     <div class="info">
       <router-outlet></router-outlet>

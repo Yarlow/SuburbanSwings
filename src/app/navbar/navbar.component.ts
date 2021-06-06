@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Router, NavigationEnd, Event } from '@angular/router';
-import { faHamburger } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   faFacebook = faFacebook;
   faInstagram = faInstagram;
   faTwitter = faTwitter;
-  faHamburger = faHamburger
+  faBars = faBars
 
   toolbar: string = "home"
   toolbarText: string = "Welcome to Suburban Swings!"
