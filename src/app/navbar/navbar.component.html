@@ -1,28 +1,33 @@
 
-<div class="wrapper">
-  <div class="sidebar">
-      <img style="width: 100%" src="assets/heck.png" alt="">
-      <h2>Suburban Swings</h2>
-      <ul>
-          <li><a routerLink="/" (click)="onNavigate('home')"><i class="fas fa-home"></i>Home</a></li>
-          <li><a routerLink="/about-the-tech" (click)="onNavigate('tech')"><i class="fas fa-user"></i>Tech shit</a></li>
-          <li><a routerLink="/booking" (click)="onNavigate('booking')"><i class="fas fa-address-card"></i>Booking</a></li>
-          <li><a routerLink="/league-play" (click)="onNavigate('league')"><i class="fas fa-project-diagram"></i>La liga</a></li>
-          <li><a href="#"><i class="fas fa-blog"></i>Customers with hot wives</a></li>
-          <li><a routerLink="/ContactUs" (click)="onNavigate('contact')"><i class="fas fa-address-book"></i>Contact</a></li>
-      </ul>
-      <div class="social_media">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-  </div>
-    <div class="main_content">
-        <div class="header">{{ toolbarText }}</div>
-        <!-- <div class="header" *ngIf="toolbar === 'tech'">Learn about our tech!</div> -->
 
-        <div class="info">
-          <router-outlet></router-outlet>
-      </div>
+<div class="sidebar" *ngIf="showNav || !mobile">
+  <button style="position: absolute; top: 5px; right: 5px;" style="" *ngIf="mobile" (click)="showNav = !showNav">X</button>
+  <a routerLink="/" style="text-decoration:none">
+    <img style="width: 100%" src="assets/natlogo.png" alt="">
+    <h2>Suburban Swings</h2>
+  </a>
+    <ul>
+        <li><a routerLink="/" (click)="onNavigate('home')">Home</a></li>
+        <li><a routerLink="/about-the-tech" (click)="onNavigate('tech')">Tech shit</a></li>
+        <li><a routerLink="/booking" (click)="onNavigate('booking')">Booking</a></li>
+        <li><a routerLink="/league-play" (click)="onNavigate('league')">La liga</a></li>
+        <li><a routerLink="/ContactUs" (click)="onNavigate('contact')">Contact</a></li>
+    </ul>
+    <div class="social_media">
+      <fa-icon class="socialLink" [icon]="faFacebook" size="3x" style="color: #ffffff"></fa-icon>
+      <fa-icon class="socialLink" [icon]="faTwitter" size="3x" style="color: #ffffff"></fa-icon>
+      <fa-icon class="socialLink" [icon]="faInstagram" size="3x" style="color: #ffffff"></fa-icon>
     </div>
+</div>
+<div class="main_content" *ngIf="!showNav || !mobile">
+    <div class="header">
+      <p>{{ toolbarText }}
+      <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button>
+    </p>
+    </div>
+    <!-- <div class="header" *ngIf="toolbar === 'tech'">Learn about our tech!</div> -->
+
+    <div class="info">
+      <router-outlet></router-outlet>
+  </div>
 </div>

@@ -22,7 +22,8 @@ import { CarouselComponent } from'./home/carousel/carousel.component';
 import { AboutTheTechComponent } from './about-the-tech/about-the-tech.component';
 import { BookingComponent } from './booking/booking.component';
 import { LeaguePlayComponent } from './league-play/league-play.component';
-import { ContactUsComponent } from './contact-us/contact-us.component'
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component'
     MatNativeDateModule,
     FormsModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    FontAwesomeModule
     // MatInput,
     // MatSidenav
   ],
