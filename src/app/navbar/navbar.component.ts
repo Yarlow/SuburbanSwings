@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Data, Router, NavigationEnd, Event } from '@angular/router';
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -14,6 +14,7 @@ export class NavbarComponent implements OnInit {
   faInstagram = faInstagram;
   faTwitter = faTwitter;
   faBars = faBars
+  faTimes = faTimes
 
   toolbar: string = "home"
   toolbarText: string = "Welcome to Suburban Swings!"
@@ -22,13 +23,18 @@ export class NavbarComponent implements OnInit {
 
 
   constructor(public activatedRoute: ActivatedRoute, private router: Router) {
-    // this.router.events.subscribe((event: Event) => {
-    //   if (event instanceof NavigationEnd){
-    //     console.log(activatedRoute.data)
-    //     this.toolbarText = activatedRoute.data['headerText']
-    //     console.log(this.activatedRoute.data)
-    //   }
-    // })
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd){
+        if (this.mobile){
+          this.showNav = false;
+        }
+        window.scrollTo(0,0)
+        this.toolbarText = this.activatedRoute.children[0].snapshot.data.headerText
+        // console.log(activatedRoute.data)
+        // this.toolbarText = activatedRoute.data['headerText']
+        // // console.log(this.activatedRoute.data)
+      }
+    })
 
   }
 
@@ -41,20 +47,21 @@ export class NavbarComponent implements OnInit {
   }
 
   onNavigate(navTo : string){
-    if (this.mobile){
-      this.showNav = false;
-    }
-    if (navTo === "home"){
-      this.toolbarText = "Welcome to Suburban Swings!"
-    } else if (navTo === "tech"){
-      this.toolbarText = "Learn our tech"
-    } else if (navTo === "booking"){
-      this.toolbarText = "BOOK AN FRICKIN APPOINTMENT"
-    } else if (navTo === "league"){
-      this.toolbarText = "Join league"
-    } else if (navTo === "contact"){
-      this.toolbarText = "gib us a call"
-    }
+    // console.log(this.activatedRoute.children)
+    // if (this.mobile){
+    //   this.showNav = false;
+    // }
+    // if (navTo === "home"){
+    //   this.toolbarText = "Welcome to Suburban Swings!"
+    // } else if (navTo === "tech"){
+    //   this.toolbarText = "Learn our tech"
+    // } else if (navTo === "booking"){
+    //   this.toolbarText = "BOOK AN FRICKIN APPOINTMENT"
+    // } else if (navTo === "league"){
+    //   this.toolbarText = "Join league"
+    // } else if (navTo === "contact"){
+    //   this.toolbarText = "gib us a call"
+    // }
   }
 
 }

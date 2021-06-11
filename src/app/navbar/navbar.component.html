@@ -1,10 +1,12 @@
 
 
 <div class="sidebar" *ngIf="showNav || !mobile">
-  <button style="position: absolute; top: 5px; right: 5px;" style="" *ngIf="mobile" (click)="showNav = !showNav">X</button>
+  <!-- <button style="position: absolute; top: 5px; right: 5px;" style="" *ngIf="mobile" (click)="showNav = !showNav">X</button> -->
+  <fa-icon [icon]="faTimes"  style="margin: 0; position: absolute; top: 5px; right: 5px; color:#b6e0e2; margin: -5px; padding:17px;" size="2x"  *ngIf="mobile" (click)="showNav = !showNav"></fa-icon>
   <a routerLink="/" style="text-decoration:none">
     <img style="width: 100%" src="assets/natlogo.png" alt="">
-    <h2>Suburban Swings</h2>
+    <div style="width: 100%; text-align:center; height: auto;"></div>
+    <img src="assets/SSOrbitronWhite.png" style="width: 95%; margin-left: auto; margin-right: auto; display: block;" alt="">
   </a>
     <ul>
         <li><a routerLink="/" (click)="onNavigate('home')">Home</a></li>
@@ -20,14 +22,13 @@
     </div>
 </div>
 <div class="main_content" *ngIf="!showNav || !mobile">
-    <div class="header">
-      <p>{{ toolbarText }}
-        <!-- <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button> -->
-        <fa-icon *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right; padding:0; margin:0" [icon]="faBars"></fa-icon>
-      </p>
-    </div>
-
-    <div class="info">
-      <router-outlet></router-outlet>
+  <div class="header">
+    <p>{{ toolbarText }}
+      <!-- <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button> -->
+      <fa-icon *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right; padding:0; margin:0;" [icon]="faBars"></fa-icon>
+    </p>
+  </div>
+  <div class="info">
+    <router-outlet></router-outlet>
   </div>
 </div>
