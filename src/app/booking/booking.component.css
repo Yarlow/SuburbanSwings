@@ -6,27 +6,27 @@ mat-form-field, textarea {
   width:100%
 }
 
-mat-card {
-  /* width: 400px; */
-  margin-top: 30px;
-  background-color: #057a82;
-  color: white;
-}
-
-.contactContainer {
-  width: 400px;
-  margin: 25px 40px;
+.bookingContainer {
+  /* width: 50%; */
+  width:600px;
+  margin: 25px auto;
   margin-bottom:0;
 }
 
-::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+mat-card {
+  margin-top: 30px;
+  background-color: #939596;
+  /* background-color: #057a82; */
+  /* color: white; */
+}
+/* ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
 background-color: white !important;
 color: white !important
 }
 
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
 color: white;
-}
+} */
 
 .submitButton {
   position: relative;
@@ -34,8 +34,22 @@ color: white;
   bottom: 0%
 }
 
+.cityStateZip{
+  display: inline-flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.dateTime{
+  display: inline-flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
 @media screen and (max-width: 700px) {
-  .contactContainer {
+  .bookingContainer {
     width:90%;
     position: relative;
     top: 10%;
@@ -43,5 +57,16 @@ color: white;
     /* height: 10%; */
     /* position: relative; */
     /* display: none */
+  }
+
+  .cityStateZip{
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .dateTime{
+    /* display: none; */
+    flex-direction: column;
+    gap: 0;
   }
 }

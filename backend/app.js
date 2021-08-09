@@ -51,6 +51,34 @@ app.post('/sendemail', (req, res, next) => {
     res.send(200)
 })
 
+app.post('/reservation', (req, res, next) => {
+  let customerEmail = req.body.contactInfo
+
+  let emailBody = `
+    <head>
+    </head>
+    <body>
+    <h1>Reservation Made</h1>
+    <h3>Customer name: ${req.body.name}</h3>
+    <h3>Name: ${req.body.name}</h3>
+    <h3>Contact Info: ${req.body.contactInfo}</h3>
+    <h3>Date: ${req.body.date}</h3>
+    <h3>Length: ${req.body.reservationLength} hours</h3>
+    <h3>Address: ${req.body.address}</h3>
+    <h3>Additional Info: ${req.body.additionalInfo}</h3>
+    </body>
+  `
+  let info = transporter.sendMail({
+      from: customerEmail, // sender address
+      to: "testnodemailer420@gmail.com", // list of receivers
+      subject: "Email From Contact Us Form", // Subject line
+      text: emailBody, // plain text body
+      html: emailBody
+    });
+    console.log(info)
+    res.send(200)
+})
+
 // Node!mailer420
 
 module.exports = app

@@ -14,6 +14,7 @@ import { MatNativeDateModule } from '@angular/material/core'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { MatButtonModule } from '@angular/material/button'
+import { MatSelectModule } from '@angular/material/select'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -23,7 +24,8 @@ import { AboutTheTechComponent } from './about-the-tech/about-the-tech.component
 import { BookingComponent } from './booking/booking.component';
 import { LeaguePlayComponent } from './league-play/league-play.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-description.component'
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     AboutTheTechComponent,
     BookingComponent,
     LeaguePlayComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    SkytrakDescriptionComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     FormsModule,
     HttpClientModule,
     MatButtonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatSelectModule
     // MatInput,
     // MatSidenav
   ],

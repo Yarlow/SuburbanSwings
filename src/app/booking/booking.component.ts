@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { BookingService } from '../booking.service'
 
 @Component({
   selector: 'app-booking',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private bookingService: BookingService) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmitReservation(resForm: NgForm){
+    if (resForm.invalid){
+      return
+    }
+
+    this.bookingService.createReservation(resForm);
+
   }
 
 }
