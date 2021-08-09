@@ -43,7 +43,7 @@ app.post('/sendemail', (req, res, next) => {
   let content = req.body.content
   let info = transporter.sendMail({
       from: customerEmail, // sender address
-      to: "testnodemailer420@gmail.com", // list of receivers
+      to: "suburbanswings@gmail.com", // list of receivers
       subject: "Email From Contact Us Form", // Subject line
       text: "customer name: " + customerName + "\n" + content, // plain text body
     });
@@ -70,7 +70,7 @@ app.post('/reservation', (req, res, next) => {
   `
   let info = transporter.sendMail({
       from: customerEmail, // sender address
-      to: "testnodemailer420@gmail.com", // list of receivers
+      to: "suburbanswings@gmail.com", // list of receivers
       subject: "Email From Contact Us Form", // Subject line
       text: emailBody, // plain text body
       html: emailBody
