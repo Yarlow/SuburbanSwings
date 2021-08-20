@@ -30,24 +30,33 @@
 
 ul {
   padding: 0;
+  text-align: center;
 }
 
 .sidebar ul li{
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  border-top: 1px solid rgba(255,255,255,0.05);
+  /* border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05); */
   list-style-type: none; /* Remove bullets */
+  margin-top: 32px;
+  text-align:center;
 }
 
 .sidebar ul li a{
-  padding: 15px;
-  padding-left: 40px;
+  margin: 15px;
+  margin-left: 40px;
   color: #b6e0e2;
   display: block;
   text-decoration: none;
-
+  width: min-content;
+  font-size: 24px;
+  white-space: nowrap;
+  font-weight: bold;
+}
+.sidebar ul li a:hover{
+  color: black;
 }
 .sidebar ul li:hover{
-  background-color: #0799a3;
+  /* background-color: #0799a3; */
   color: #fff;
 }
 
@@ -75,7 +84,8 @@ ul {
   margin-left: 15rem; */
   margin-left: 240px;
   /* height: 1000px; */
-  overflow: hidden;
+  /* overflow: hidden; */
+  background-color: #dedede;
 }
 
 
@@ -83,11 +93,21 @@ ul {
   padding: 20px;
   background: #057a82;
   color: #b6e0e2;
+  position: sticky;
+  top: 0;
+  margin-top:0;
+  z-index: 5;
+
+  transition: top 0.3s ease-in-out;
 }
 
 .main_content .info{
   color: #717171;
   line-height: 25px;
+  overflow: hidden;
+  /* background: #858181; */
+  min-height: calc(100vh - 60px);
+
 }
 
 .main_content .info div{

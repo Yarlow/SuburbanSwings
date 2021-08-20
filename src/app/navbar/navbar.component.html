@@ -9,11 +9,11 @@
     <img src="assets/SSOrbitronWhite.png" style="width: 95%; margin-left: auto; margin-right: auto; display: block;" alt="">
   </a>
     <ul>
-        <li><a routerLink="/" (click)="onNavigate('home')">Home</a></li>
-        <li><a routerLink="/about-the-tech" (click)="onNavigate('tech')">Tech shit</a></li>
-        <li><a routerLink="/booking" (click)="onNavigate('booking')">Booking</a></li>
-        <li><a routerLink="/league-play" (click)="onNavigate('league')">La liga</a></li>
-        <li><a routerLink="/ContactUs" (click)="onNavigate('contact')">Contact</a></li>
+        <li><a routerLink="/">Home</a></li>
+        <!-- <li><a routerLink="/about-the-tech">Tech shit</a></li> -->
+        <li><a routerLink="/booking">Booking</a></li>
+        <!-- <li><a routerLink="/league-play">La liga</a></li> -->
+        <li><a routerLink="/ContactUs">Contact</a></li>
     </ul>
     <div class="social_media">
       <fa-icon class="socialLink" [icon]="faFacebook" size="3x" style="color: #ffffff"></fa-icon>
@@ -22,7 +22,7 @@
     </div>
 </div>
 <div class="main_content" *ngIf="!showNav || !mobile">
-  <div class="header">
+  <div class="header" ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-80px'" [valueWhenShown]="'0px'">
     <p>{{ toolbarText }}
       <!-- <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button> -->
       <fa-icon *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right; padding:0; margin:0;" [icon]="faBars"></fa-icon>

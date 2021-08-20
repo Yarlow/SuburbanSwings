@@ -9,8 +9,6 @@ mat-form-field, textarea {
 mat-card {
   /* width: 400px; */
   margin-top: 30px;
-  background-color: #057a82;
-  color: white;
 }
 
 .contactContainer {
@@ -19,14 +17,14 @@ mat-card {
   margin-bottom:0;
 }
 
-::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+/* ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
 background-color: white !important;
 color: white !important
 }
 
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
 color: white;
-}
+} */
 
 .submitButton {
   position: relative;

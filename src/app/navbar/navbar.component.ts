@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Data, Router, NavigationEnd, Event } from '@angular/router';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd, Event } from '@angular/router';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -10,6 +10,13 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @HostListener('window:resize', ['$event']) onResize(event) {
+      if (event.target.innerwidth < 700) {
+        this.mobile = true;
+        this.showNav = false;
+      }
+  }
+
   faFacebook = faFacebook;
   faInstagram = faInstagram;
   faTwitter = faTwitter;
@@ -42,26 +49,7 @@ export class NavbarComponent implements OnInit {
     if (window.screen.width < 700) {
       this.mobile = true;
       this.showNav = false;
-      console.log("Smol Boi")
     }
-  }
-
-  onNavigate(navTo : string){
-    // console.log(this.activatedRoute.children)
-    // if (this.mobile){
-    //   this.showNav = false;
-    // }
-    // if (navTo === "home"){
-    //   this.toolbarText = "Welcome to Suburban Swings!"
-    // } else if (navTo === "tech"){
-    //   this.toolbarText = "Learn our tech"
-    // } else if (navTo === "booking"){
-    //   this.toolbarText = "BOOK AN FRICKIN APPOINTMENT"
-    // } else if (navTo === "league"){
-    //   this.toolbarText = "Join league"
-    // } else if (navTo === "contact"){
-    //   this.toolbarText = "gib us a call"
-    // }
   }
 
 }

@@ -29,6 +29,7 @@
     "@ngbmodule/material-carousel": "^0.7.1",
     "@ngmodule/material-carousel": "^0.6.0",
     "bootstrap": "^5.0.1",
+    "ngx-hide-on-scroll": "^0.1.0",
     "nodemailer": "^6.6.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
