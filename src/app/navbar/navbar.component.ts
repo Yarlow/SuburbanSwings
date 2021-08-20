@@ -52,4 +52,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  onNav() {
+    if (this.mobile){
+      this.showNav = false;
+    }
+  }
+
 }

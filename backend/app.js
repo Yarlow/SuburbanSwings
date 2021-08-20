@@ -12,8 +12,8 @@ let transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // true for 465, false for other ports
   auth: {
-    user: 'testnodemailer420@gmail.com', // generated ethereal user
-    pass: 'Node!mailer420', // generated ethereal password
+    user: 'suburbanswings@gmail.com', // generated ethereal user
+    pass: 'GolfGuyzz', // generated ethereal password
   },
 });
 
@@ -45,7 +45,7 @@ app.post('/sendemail', (req, res, next) => {
       from: customerEmail, // sender address
       to: "suburbanswings@gmail.com", // list of receivers
       subject: "Email From Contact Us Form", // Subject line
-      text: "customer name: " + customerName + "\n" + content, // plain text body
+      text: "customer name: " + customerName + "\n email/phone: " + customerEmail +  "\n" + content, // plain text body
     });
     console.log(info)
     res.send(200)

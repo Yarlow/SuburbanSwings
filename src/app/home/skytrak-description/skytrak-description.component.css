@@ -28,6 +28,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  padding: 25px;
 }
 
 .descWords p {
@@ -41,6 +44,7 @@
   opacity: 1;
   display: block;
   width: 100%;
+
   height: auto;
   transition: .5s ease;
   backface-visibility: hidden;
@@ -48,6 +52,7 @@
 
 .descItem:hover .descImg img {
   opacity: 0.3;
+  width: 100%;
 }
 
 .descItem:hover .descWords {
@@ -55,6 +60,40 @@
 }
 
 .descItem {
-  width: min-content;
   position: relative;
+}
+
+.container {
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  width: 100%;
+  align-items: center;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.filler {
+  height: 20%;
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .descWords p {
+    white-space: normal;
+    width: 100%;
+    text-align: center;
+  }
 }

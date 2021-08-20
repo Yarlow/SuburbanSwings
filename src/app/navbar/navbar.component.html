@@ -9,11 +9,11 @@
     <img src="assets/SSOrbitronWhite.png" style="width: 95%; margin-left: auto; margin-right: auto; display: block;" alt="">
   </a>
     <ul>
-        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/" (click)="onNav()">Home</a></li>
         <!-- <li><a routerLink="/about-the-tech">Tech shit</a></li> -->
-        <li><a routerLink="/booking">Booking</a></li>
+        <li><a routerLink="/booking" (click)="onNav()">Booking</a></li>
         <!-- <li><a routerLink="/league-play">La liga</a></li> -->
-        <li><a routerLink="/ContactUs">Contact</a></li>
+        <li><a routerLink="/ContactUs" (click)="onNav()">Contact</a></li>
     </ul>
     <div class="social_media">
       <fa-icon class="socialLink" [icon]="faFacebook" size="3x" style="color: #ffffff"></fa-icon>
