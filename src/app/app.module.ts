@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { MatButtonModule } from '@angular/material/button'
 import { MatSelectModule } from '@angular/material/select'
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll'
 
 import { AppComponent } from './app.component';
@@ -57,7 +58,8 @@ import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-
     MatButtonModule,
     FontAwesomeModule,
     MatSelectModule,
-    NgxHideOnScrollModule
+    NgxHideOnScrollModule,
+    MatSnackBarModule
     // MatInput,
   ],
   providers: [],

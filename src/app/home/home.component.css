@@ -94,6 +94,8 @@
     top: 45%;
     font-size: 42px;
     width:100%;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   .whatweoffer h1 {
     font-size: 50px !important;
@@ -105,7 +107,13 @@
     margin: 80px 10px !important;
   }
 }
-
+@media screen and (max-width: 1000px) {
+  .VidTitle {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 100%;
+  }
+}
 @media screen and (max-width: 400px) {
   .MainVideo{
     object-fit: cover;
@@ -143,7 +151,7 @@
   color: #057a82;
   /* white-space: nowrap; */
   line-height: 1;
-  
+
   font-family: 'Orbitron', sans-serif;
 }
 

@@ -13,7 +13,7 @@ mat-card {
 
 .contactContainer {
   width: 400px;
-  margin: 25px 40px;
+  margin: 25px auto;
   margin-bottom:0;
 }
 
