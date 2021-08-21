@@ -17,10 +17,8 @@ export class BookingService {
       additionalInfo: resForm.value.additionalInfo
 
     }
-    this.http.post<{message: string}>('http://localhost:3000/reservation', reservationInfo)
-      .subscribe((responseData) => {
+    return this.http.post<{message: string}>('http://localhost:5000/reservation', reservationInfo)
 
-      })
   }
 
 }

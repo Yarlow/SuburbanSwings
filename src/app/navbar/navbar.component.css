@@ -61,7 +61,7 @@ ul {
 }
 
 .sidebar .social_media{
-  position: fixed; /* Change this to absolute when list grows */
+  position: absolute; /* Change this to absolute when list grows */
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
