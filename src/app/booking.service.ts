@@ -17,7 +17,7 @@ export class BookingService {
       additionalInfo: resForm.value.additionalInfo
 
     }
-    return this.http.post<{message: string}>('http://localhost:5000/reservation', reservationInfo)
+    return this.http.post<{message: string}>('api.suburbanswings.com/reservation', reservationInfo)
 
   }
 

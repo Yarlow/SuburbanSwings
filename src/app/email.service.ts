@@ -9,7 +9,7 @@ export class EmailService {
   sendEmail(name: string, contactInfo: string, content: string) {
     const emailInfo = {name: name, contactInfo: contactInfo, content: content}
     console.log(emailInfo)
-    this.http.post<{message: string}>('http://localhost:3000/sendemail', emailInfo)
+    this.http.post<{message: string}>('api.suburbanswings.com/sendemail', emailInfo)
       .subscribe((responseData) => {
 
       })
