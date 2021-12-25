@@ -129,10 +129,13 @@ ul {
 }
 
 @media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
+  .sidebar ul li a {
+    text-align: left;
+    white-space: nowrap;
     float: none;
+    width: 100%;
   }
+
 }
 
 fa-icon {

@@ -1,0 +1,10 @@
+
+<div mat-dialog-content>
+  <h3>Are you ready to join the league?</h3>
+  <p>Clicking Yes will redirect you to our payment screen.</p>
+  <p>You will also be sent an email with a link to payment if you choose to pay later, but we will only hold your spot for 24 hours.</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" color="warn">No Thanks</button>
+  <button mat-raised-button (click)="onYesClick()" cdkFocusInitial color="accent">Yes</button>
+</div>

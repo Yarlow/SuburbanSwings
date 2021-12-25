@@ -4,7 +4,7 @@
   <!-- <button style="position: absolute; top: 5px; right: 5px;" style="" *ngIf="mobile" (click)="showNav = !showNav">X</button> -->
   <fa-icon [icon]="faTimes"  style="margin: 0; position: absolute; top: 5px; right: 5px; color:#b6e0e2; margin: -5px; padding:17px;" size="2x"  *ngIf="mobile" (click)="showNav = !showNav"></fa-icon>
   <a routerLink="/" style="text-decoration:none">
-    <img style="width: 100%" src="assets/natlogo.png" alt="">
+    <img style="width: 100%" src="assets/natlogo-min.png" alt="">
     <div style="width: 100%; text-align:center; height: auto;"></div>
     <img src="assets/SSOrbitronWhite.png" style="width: 95%; margin-left: auto; margin-right: auto; display: block;" alt="">
   </a>
@@ -12,13 +12,15 @@
         <li><a routerLink="/" (click)="onNav()">Home</a></li>
         <!-- <li><a routerLink="/about-the-tech">Tech shit</a></li> -->
         <li><a routerLink="/booking" (click)="onNav()">Booking</a></li>
-        <!-- <li><a routerLink="/league-play">La liga</a></li> -->
+        <li style="text-align:left; line-height: 1.2;"><a routerLink="/Heart-State-Brewing" (click)="onNav()">Heart State<br><span >Brewing</span></a></li>
+
+        <!-- <li><a routerLink="/league">Join a League</a></li> -->
         <li><a routerLink="/ContactUs" (click)="onNav()">Contact</a></li>
+        <li><a routerLink="/FAQ" (click)="onNav()">FAQ</a></li>
+
     </ul>
     <div class="social_media">
-      <fa-icon class="socialLink" [icon]="faFacebook" size="3x" style="color: #ffffff"></fa-icon>
-      <fa-icon class="socialLink" [icon]="faTwitter" size="3x" style="color: #ffffff"></fa-icon>
-      <fa-icon class="socialLink" [icon]="faInstagram" size="3x" style="color: #ffffff"></fa-icon>
+      <a href="https://www.instagram.com/suburbanswings/"><fa-icon class="socialLink" [icon]="faInstagram" size="3x" style="color: #ffffff"></fa-icon></a>
     </div>
 </div>
 <div class="main_content" *ngIf="!showNav || !mobile">

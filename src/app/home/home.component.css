@@ -59,6 +59,25 @@
 
 }
 
+.VidTitleH1 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left:50%;
+  /* font-size: 5rem; */
+  transform: translate(-50%, -50%);
+  width: 75%;
+  text-align: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size:6rem;
+  user-select: none;
+  white-space: nowrap;
+  
+  /* text-transform: uppercase; */
+  font-weight: 500;
+}
+
 .VidFooter {
   position: absolute;
   z-index: 1;
@@ -76,8 +95,8 @@
   .VideoButton {
     height: auto;
     position: absolute;
-    padding: 0.1rem 0.5rem;
-    font-size: 13px;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
     bottom: 5%;
     /* display: none */
   }
@@ -93,9 +112,9 @@
   .VidTitle{
     top: 45%;
     font-size: 42px;
-    width:100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    width:98%;
+    /* margin-left: 10px;
+    margin-right: 10px; */
   }
   .whatweoffer h1 {
     font-size: 50px !important;
@@ -109,9 +128,9 @@
 }
 @media screen and (max-width: 1000px) {
   .VidTitle {
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 100%;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    width: 98%;
   }
 }
 @media screen and (max-width: 400px) {

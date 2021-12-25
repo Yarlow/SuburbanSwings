@@ -11,11 +11,13 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
-import { FormsModule } from '@angular/forms'
+import { MatDialogModule } from '@angular/material/dialog'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { MatButtonModule } from '@angular/material/button'
 import { MatSelectModule } from '@angular/material/select'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll'
 
 import { AppComponent } from './app.component';
@@ -27,7 +29,17 @@ import { BookingComponent } from './booking/booking.component';
 import { LeaguePlayComponent } from './league-play/league-play.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-description.component'
+import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-description.component';
+import { SignupComponent, LeagueSignupConfirmDialog } from './league-play/signup/signup.component';
+import { FAQComponent } from './faq/faq.component';
+import { HeartstateComponent } from './heartstate/heartstate.component';
+import { WalkInComponent } from './heartstate/walk-in/walk-in.component';
+import { PaymetSuccessComponent } from './league-play/signup/paymet-success/paymet-success.component';
+import { PaymetCancelComponent } from './league-play/signup/paymet-cancel/paymet-cancel.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+// import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
+// import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -39,7 +51,14 @@ import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-
     BookingComponent,
     LeaguePlayComponent,
     ContactUsComponent,
-    SkytrakDescriptionComponent
+    SkytrakDescriptionComponent,
+    SignupComponent,
+    FAQComponent,
+    HeartstateComponent,
+    WalkInComponent,
+    PaymetSuccessComponent,
+    PaymetCancelComponent,
+    LeagueSignupConfirmDialog
   ],
   imports: [
     BrowserModule,
@@ -59,7 +78,12 @@ import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-
     FontAwesomeModule,
     MatSelectModule,
     NgxHideOnScrollModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatExpansionModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule
+    // NgxStripeModule.forRoot('pk_test_51JtfA0GnXfM47IJy8Jc0EiBvuiLDlgo3K8rSOFHBIF2OxybYsFyo5cf6vKwLvvlcrNLhadkHmPSyHJiWG4QKDtJN00O2Ru2FXn'),
     // MatInput,
   ],
   providers: [],
