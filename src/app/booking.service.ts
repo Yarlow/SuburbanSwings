@@ -18,7 +18,7 @@ export class BookingService {
       additionalInfo: resForm.value.additionalInfo
 
     }
-    return this.http.post<{message: string}>(environment.apiUrl + '/reservation', reservationInfo)
+    return this.http.post<{message: string}>(environment.apiUrl + 'reservation', reservationInfo)
 
   }
 

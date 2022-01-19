@@ -18,7 +18,7 @@ export class LeagueService {
 
   getSeasonInfo() {
     return new Promise((resolve, reject) => {
-      this.http.get(environment.apiUrl + "/seasons/").subscribe(responseData => {
+      this.http.get(environment.apiUrl + "seasons/").subscribe(responseData => {
         if (responseData) {
           resolve(responseData)
         }
@@ -46,7 +46,7 @@ export class LeagueService {
     //     })
 
     return new Promise((resolve, reject) => {
-      this.http.post<{url: string, status: number}>(environment.apiUrl + "/teams/", body).subscribe(responseData => {
+      this.http.post<{url: string, status: number}>(environment.apiUrl + "teams/", body).subscribe(responseData => {
         console.log(responseData.status)
         if (responseData.url) {
           window.open(responseData.url);
