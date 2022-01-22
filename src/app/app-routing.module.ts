@@ -11,6 +11,8 @@ import { FAQComponent } from './faq/faq.component';
 import { HeartstateComponent } from './heartstate/heartstate.component';
 import { PaymetSuccessComponent } from './league-play/signup/paymet-success/paymet-success.component';
 import { PaymetCancelComponent } from './league-play/signup/paymet-cancel/paymet-cancel.component';
+import { EventsComponent } from './events/events.component';
+import { EventSignupComponent } from './events/event-signup/event-signup.component';
 
 const routes: Routes = [
   {
@@ -81,6 +83,19 @@ const routes: Routes = [
     component: PaymetCancelComponent,
     data: {
       headerText: 'Payment Cancelled'
+    }
+  },
+  {
+    path: 'Events',
+    component: EventsComponent,
+    data: {
+      headerText: 'Planned Events'
+    }
+  }, {
+    path: 'Events/signup/:eventID',
+    component: EventSignupComponent,
+    data: {
+      headerText: 'Event Signup'
     }
   }
 ];

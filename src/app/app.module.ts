@@ -37,6 +37,11 @@ import { WalkInComponent } from './heartstate/walk-in/walk-in.component';
 import { PaymetSuccessComponent } from './league-play/signup/paymet-success/paymet-success.component';
 import { PaymetCancelComponent } from './league-play/signup/paymet-cancel/paymet-cancel.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EventsComponent } from './events/events.component';
+import { EventsListComponent } from './events/events-list/events-list.component';
+import { EventsListItemComponent } from './events/events-list/events-list-item/events-list-item.component';
+import { EventSignupComponent, EventSignupConfirmDialog } from './events/event-signup/event-signup.component';
+import { AdminComponent } from './users/admin/admin.component';
 
 // import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
 // import { NgxStripeModule } from 'ngx-stripe';
@@ -58,7 +63,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     WalkInComponent,
     PaymetSuccessComponent,
     PaymetCancelComponent,
-    LeagueSignupConfirmDialog
+    LeagueSignupConfirmDialog,
+    EventsComponent,
+    EventsListComponent,
+    EventsListItemComponent,
+    EventSignupComponent,
+    EventSignupConfirmDialog,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

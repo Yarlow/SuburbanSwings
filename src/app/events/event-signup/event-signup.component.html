@@ -1,0 +1,85 @@
+<div class="formWrapper" >
+  <mat-spinner *ngIf="isLoading" color="accent"></mat-spinner>
+  <mat-card *ngIf="!isLoading">
+    <h2>{{eventName}} Signup Form:</h2>
+    <form (submit)="onConfirm()" [formGroup]="form" style="display: flex; flex-direction: column;">
+      <mat-form-field>
+        <input matInput formControlName="teamName" placeholder="Team Name" type="text">
+      </mat-form-field>
+
+
+      <div class="row justify-content-around">
+        <div class="col-sm-5 col-md-5">
+          <mat-form-field>
+            <mat-label>Desired Day</mat-label>
+            <mat-select formControlName="selectedDay">
+              <mat-option *ngFor="let availableDay of availableDays" [value]="availableDay">{{availableDay}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-5 col-md-5 ">
+          <mat-form-field>
+            <mat-label *ngIf="!this.form.value.selecteDay">Select A Day First</mat-label>
+            <mat-label *ngIf="this.form.value.selecteDay">Desired Time</mat-label>
+            <mat-select formControlName="selectedTime">
+              <mat-option *ngFor="let availableTime of availableSelectedDayTimes" [value]="availableTime">{{availableTime}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="teamMembers row justify-content-around">
+        <div class="col-sm-5">
+          <h1>Team Member 1</h1>
+          <mat-form-field>
+            <input type="text" formControlName="tMem1Name" placeholder="Member Name" matInput>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName="tMem1Email" placeholder="Email" type="text">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName="tMem1Phone" placeholder="Phone Number" type="text">
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-5">
+          <h1>Team Member 2</h1>
+          <mat-form-field>
+            <input type="text" formControlName="tMem2Name" placeholder="Member Name" matInput>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName="tMem2Email" placeholder="Email" type="text">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput formControlName="tMem2Phone" placeholder="Phone Number" type="text">
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+
+
+      <button mat-button color="accent" type="submit">Confirm</button>
+
+    </form>
+
+  </mat-card>
+
+  <!-- <app-stripe-payment></app-stripe-payment> -->
+  <div class="disclaimer"  *ngIf="!isLoading">
+    <!-- <img src="assets/Untitled.png" alt=""> -->
+    <mat-card style="border: red 1px solid">
+      <p class="disclaimerHeader">Disclaimer</p >
+      <p>Both players on the team have to swing with the same handedness (righty or lefty) due to how the simulator is set up.</p>
+
+
+
+    </mat-card>
+  </div>
+
+</div>

@@ -1,9 +1,17 @@
-.VideoButton{
+.VideoLeagueButton{
   font-size: 32px;
   padding: 1.5rem 4.5rem;
   position: absolute;
   bottom: 3%;
   right: 3%
+}
+
+.VideoEventButton {
+  font-size: 32px;
+  padding: 1.5rem 4.5rem;
+  position: absolute;
+  bottom: 3%;
+  left: 3%
 }
 
 .VideoWrapper {
@@ -73,7 +81,7 @@
   font-size:6rem;
   user-select: none;
   white-space: nowrap;
-  
+
   /* text-transform: uppercase; */
   font-weight: 500;
 }
@@ -91,8 +99,8 @@
   user-select: none;
 }
 
-@media screen and (max-width: 700px) {
-  .VideoButton {
+@media screen and (max-width: 1020px) {
+  .VideoLeagueButton {
     height: auto;
     position: absolute;
     padding: 0.1em 0.5em;
@@ -100,6 +108,34 @@
     bottom: 5%;
     /* display: none */
   }
+
+  .VideoEventButton {
+    height: auto;
+    position: absolute;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
+    bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .VideoLeagueButton {
+    height: auto;
+    position: absolute;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
+    bottom: 5%;
+    /* display: none */
+  }
+
+  .VideoEventButton {
+    height: auto;
+    position: absolute;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
+    bottom: 5%;
+  }
+
   .VideoDiv .MainVideo {
 
   }
