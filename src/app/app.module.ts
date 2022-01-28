@@ -42,6 +42,9 @@ import { EventsListComponent } from './events/events-list/events-list.component'
 import { EventsListItemComponent } from './events/events-list/events-list-item/events-list-item.component';
 import { EventSignupComponent, EventSignupConfirmDialog } from './events/event-signup/event-signup.component';
 import { AdminComponent } from './users/admin/admin.component';
+import { AdminEventListComponent } from './users/admin/admin-event-list/admin-event-list.component';
+import { AdminEventViewComponent } from './users/admin/admin-event-list/admin-event-view/admin-event-view.component';
+import { LoginComponent } from './users/login/login.component';
 
 // import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
 // import { NgxStripeModule } from 'ngx-stripe';
@@ -69,7 +72,10 @@ import { AdminComponent } from './users/admin/admin.component';
     EventsListItemComponent,
     EventSignupComponent,
     EventSignupConfirmDialog,
-    AdminComponent
+    AdminComponent,
+    AdminEventListComponent,
+    AdminEventViewComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

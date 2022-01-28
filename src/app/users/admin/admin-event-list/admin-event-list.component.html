@@ -1,0 +1,3 @@
+<mat-card class="eventListItem" (click)="onEventSelected()">{{eventElement.name}} @ {{eventElement.location.name}}</mat-card>
+
+<app-admin-event-view *ngIf="selected" class="animateComponent" [eventElement]=eventElement></app-admin-event-view>

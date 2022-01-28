@@ -11,12 +11,17 @@ import { SSEvent } from '../event.model'
 export class EventsListComponent implements OnInit {
 
   events: SSEvent[];
-  eventSubscription: Subscription;
+  eventsSub: Subscription;
 
   constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
     this.events = this.eventsService.getEvents();
+    // this.eventsService.getAllEvents()
+    // this.eventsSub = this.eventsService.getEventsUpdateListener().subscribe( (events: SSEvent[]) => {
+    //   this.events = events
+    //   console.log(events)
+    // })
   }
 
 }

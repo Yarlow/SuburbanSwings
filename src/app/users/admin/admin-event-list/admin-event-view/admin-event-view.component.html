@@ -1,0 +1,36 @@
+<div class="adminEventWrapper">
+  <mat-card>
+
+    <p class="playerListHeader">
+      Click a day or total to see the players on the selected item
+    </p>
+
+    <p class="totalPlayers" (click)="showAllPlayers()">Total players: {{teams.length}}</p>
+
+    <div *ngFor="let day of dayCount | keyvalue" [value]="[day.key, day.value]">
+      <p (click)='showDayPlayers(day.key)' *ngIf="day.value > 0" class="playerByDayHeader">
+        {{day.key}} : {{day.value}}
+      </p>
+    </div>
+
+    <div class="teamList" *ngFor="let team of displayTeams">
+      <div class="team">
+        <p class="teamName">Team: {{team.name}} -- {{ team.playDay }} @ {{ team.playTime }}</p>
+        <p class="paid">Paid? {{ team.paid }}</p>
+        <div class="teamMembers" *ngFor="let player of team.players">
+          <p class="playerName">Name: {{player.name}}</p>
+          <p class="playerEmail">Email: {{player.email}}</p>
+          <p class="playerPhoneNum">Phone: {{player.phoneNum}}</p>
+          <p>=======</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="downloadButtons" *ngIf="selectionMade">
+      <button (click)="downloadAllInfo()">Download all info on Selected Day</button>
+      <button (click)="downloadEmails()">Download email list</button>
+      <button (click)="downloadPhones()">Download phone list</button>
+    </div>
+  </mat-card>
+
+</div>

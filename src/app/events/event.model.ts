@@ -13,14 +13,15 @@ export interface SSEvent {
     Friday: string[],
     Saturday: string[]
   },
-  setup : {
-    holesPlayed: 9,
-    playersPerTeam: 2,
-    maxTeams: 30
+  setupAndRules : {
+    holesPerRound: number,
+    playersPerTeam: number,
+    maxTeams: number
   },
   startDate: Date,
   endDate: Date,
   eventType: string,
-  price: number
+  price: number,
+  summaryText: string
 
 }

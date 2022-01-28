@@ -1,2 +1,9 @@
 
+<!-- <div class="row">
+    <div *ngFor="let event of events" class="col-xl-3 col-lg-5 col-md-5 list-items">
+      <app-events-list-item [eventElement]=event></app-events-list-item>
+    </div>
+
+</div> -->
+
 <app-events-list-item *ngFor="let event of events" [eventElement] = event></app-events-list-item>

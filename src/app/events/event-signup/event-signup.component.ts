@@ -81,9 +81,22 @@ export class EventSignupComponent implements OnInit {
 
     this.form.valueChanges.subscribe(x => {
       if (this.form.value.selectedDay){
-        this.availableSelectedDayTimes = this.availableTimes[this.form.value.selectedDay]
+        this.availableSelectedDayTimes = this.availableTimes[this.form.value.selectedDay].sort((a, b) => {
+          const a24 = this.convertTo24Hours(a);
+          const b24 = this.convertTo24Hours(b);
+          return a24 - b24;
+        })
       }
     })
+  }
+
+  convertTo24Hours(time) {
+    let removeCol = time.split(':')
+    let halfOfDay = removeCol[1].substring(2);
+    let hour = halfOfDay === 'am' ? parseInt(removeCol[0]) : parseInt(removeCol[0]) + 12;
+
+    // console.log(time , '->', hour * 100 + parseInt(removeCol[1]))
+    return hour * 100 + parseInt(removeCol[1])
   }
 
   onConfirm() {

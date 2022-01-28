@@ -1,20 +1,24 @@
 import { HttpClient  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SSEvent } from './event.model'
 import { SSLocation } from './location.model'
+import { SSTeam } from './team.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService {
 
+  private eventsUpdated = new Subject<SSEvent[]>()
+
   events: SSEvent[] = [
     {
       _id: "61ea22c77deb92bd8caff591",
-      name: "Nocterra Cup",
+      name: "Moth Cup",
       location: {
-        name: "Nocterra Brewing Company",
+        name: "Nocterra Brewing Co.",
         address: "41 Depot St, Powell, OH 43065",
         phoneNum: "(614) 896-8000"
       },
@@ -29,14 +33,15 @@ export class EventsService {
         Friday: [],
         Saturday: []
       },
-      setup: {
-        holesPlayed: 9,
+      setupAndRules: {
+        holesPerRound: 9,
         playersPerTeam: 2,
-        maxTeams: 30,
+        maxTeams: 16,
 
       },
-      price: 30,
-      eventType: "Tournament"
+      price: 60,
+      eventType: "Tournament",
+      summaryText: "Teams of 2 will compete to win The Moth Cup, a custom trophy made by our brewer, and two $50 Nocterra gift cards. The course is a 9-hole par 3 course and is expected to take about one hour per team to play."
     }
   ]
 
@@ -44,6 +49,14 @@ export class EventsService {
 
   getEvents() : SSEvent[] {
     return this.events;
+  }
+
+  getAllEvents() {
+    this.http.get<{message: string, events: any}>(environment.apiUrl + 'events')
+      .subscribe(response => {
+        this.events = response.events
+        this.eventsUpdated.next([...this.events])
+      })
   }
 
   getEventInfo(eventID): Promise<SSEvent> {
@@ -76,6 +89,15 @@ export class EventsService {
         reject(error)
       })
     })
+  }
+
+  getEventsUpdateListener() {
+    return this.eventsUpdated.asObservable()
+  }
+
+  getTeamsByEvent(eventId) {
+    console.log("eventId" , eventId);
+    return this.http.get<{teams: SSTeam[]}>(environment.apiUrl + "teams/byEventId/" + eventId)
   }
 
 }

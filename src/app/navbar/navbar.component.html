@@ -27,6 +27,9 @@
 <div class="main_content" *ngIf="!showNav || !mobile">
   <div class="header" ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-80px'" [valueWhenShown]="'0px'">
     <p>{{ toolbarText }}
+      <button *ngIf="userIsAuthenticated" (click)="onLogout()">Logout</button>
+      <a routerLink="/admin"><button *ngIf="role === 'admin'">Admin page</button></a>
+
       <!-- <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button> -->
       <fa-icon *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right; padding:0; margin:0;" [icon]="faBars"></fa-icon>
     </p>

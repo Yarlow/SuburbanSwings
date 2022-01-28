@@ -13,6 +13,9 @@ import { PaymetSuccessComponent } from './league-play/signup/paymet-success/paym
 import { PaymetCancelComponent } from './league-play/signup/paymet-cancel/paymet-cancel.component';
 import { EventsComponent } from './events/events.component';
 import { EventSignupComponent } from './events/event-signup/event-signup.component';
+import { AdminComponent } from './users/admin/admin.component';
+import { AuthGuard } from './users/auth.guard';
+import { LoginComponent } from './users/login/login.component';
 
 const routes: Routes = [
   {
@@ -97,11 +100,27 @@ const routes: Routes = [
     data: {
       headerText: 'Event Signup'
     }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      headerText: 'Sign In'
+    }
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+    data: {
+      headerText: 'Admin Page'
+    }
   }
 ];
 
 @NgModule( {
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {}
