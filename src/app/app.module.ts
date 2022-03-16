@@ -11,12 +11,15 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatDatepickerModule } from '@angular/material/datepicker'
 import { MatNativeDateModule } from '@angular/material/core'
-import { FormsModule } from '@angular/forms'
+import { MatDialogModule } from '@angular/material/dialog'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { MatButtonModule } from '@angular/material/button'
 import { MatSelectModule } from '@angular/material/select'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll'
+import { MatChipsModule } from '@angular/material/chips'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -27,7 +30,30 @@ import { BookingComponent } from './booking/booking.component';
 import { LeaguePlayComponent } from './league-play/league-play.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-description.component'
+import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-description.component';
+import { SignupComponent, LeagueSignupConfirmDialog } from './league-play/signup/signup.component';
+import { FAQComponent } from './faq/faq.component';
+import { HeartstateComponent } from './heartstate/heartstate.component';
+import { WalkInComponent } from './heartstate/walk-in/walk-in.component';
+import { PaymetSuccessComponent } from './league-play/signup/paymet-success/paymet-success.component';
+import { PaymetCancelComponent } from './league-play/signup/paymet-cancel/paymet-cancel.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { EventsComponent } from './events/events.component';
+import { EventsListComponent } from './events/events-list/events-list.component';
+import { EventsListItemComponent } from './events/events-list/events-list-item/events-list-item.component';
+import { EventSignupComponent, EventSignupConfirmDialog } from './events/event-signup/event-signup.component';
+import { AdminComponent } from './users/admin/admin.component';
+import { AdminEventListComponent } from './users/admin/admin-event-list/admin-event-list.component';
+import { AdminEventViewComponent } from './users/admin/admin-event-list/admin-event-view/admin-event-view.component';
+import { LoginComponent } from './users/login/login.component';
+import { CreateEventComponent, EventCreatePreviewDialog } from './users/admin/create-event/create-event.component';
+import { AboutUsComponent } from './home/about-us/about-us.component';
+import { AboutUsGridComponent } from './home/about-us/about-us-grid/about-us-grid.component';
+import { EventDetailsComponent } from './home/event-details/event-details.component';
+import { AdminLocationsComponent } from './users/admin/admin-locations/admin-locations.component';
+
+// import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
+// import { NgxStripeModule } from 'ngx-stripe';
 
 @NgModule({
   declarations: [
@@ -39,7 +65,29 @@ import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-
     BookingComponent,
     LeaguePlayComponent,
     ContactUsComponent,
-    SkytrakDescriptionComponent
+    SkytrakDescriptionComponent,
+    SignupComponent,
+    FAQComponent,
+    HeartstateComponent,
+    WalkInComponent,
+    PaymetSuccessComponent,
+    PaymetCancelComponent,
+    LeagueSignupConfirmDialog,
+    EventsComponent,
+    EventsListComponent,
+    EventsListItemComponent,
+    EventSignupComponent,
+    EventSignupConfirmDialog,
+    AdminComponent,
+    AdminEventListComponent,
+    AdminEventViewComponent,
+    LoginComponent,
+    CreateEventComponent,
+    EventCreatePreviewDialog,
+    AboutUsComponent,
+    AboutUsGridComponent,
+    EventDetailsComponent,
+    AdminLocationsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +107,13 @@ import { SkytrakDescriptionComponent } from './home/skytrak-description/skytrak-
     FontAwesomeModule,
     MatSelectModule,
     NgxHideOnScrollModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    MatExpansionModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+    MatChipsModule
+    // NgxStripeModule.forRoot('pk_test_51JtfA0GnXfM47IJy8Jc0EiBvuiLDlgo3K8rSOFHBIF2OxybYsFyo5cf6vKwLvvlcrNLhadkHmPSyHJiWG4QKDtJN00O2Ru2FXn'),
     // MatInput,
   ],
   providers: [],

@@ -1,0 +1,43 @@
+.event-details--wrapper {
+  margin-top: 150px;
+}
+
+.details--flex {
+  display: flex;
+  gap: 80px;
+  justify-content: space-around;
+}
+
+.details--box {
+  background-color: white;
+  height: 400px;
+  width: 300px;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.details--box--header {
+
+}
+
+.details--box--header p {
+  font-size: 32px;
+  text-align: center;
+}
+
+.details--box--content {
+
+}
+
+.content-list {
+  list-style: none;
+}
+
+.content-list-item {
+  font-size: 20px;
+  margin-top: 8px;
+}
+
+.content-list-item:not(:last-child) {
+  border-bottom: solid 1px #dedede;
+}

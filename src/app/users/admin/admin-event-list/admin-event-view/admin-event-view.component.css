@@ -1,0 +1,36 @@
+.adminEventWrapper {
+  margin: 10px 50px;
+}
+
+.playerListHeader {
+  font-size: 32px;
+}
+
+.totalPlayers {
+  font-size: 20px;
+}
+
+.playerByDayHeader {
+  font-size: 16px;
+}
+
+.teamName {
+  font-size: 20px;
+}
+
+.teamMembers {
+  padding-left: 20px;
+}
+
+.playerName {
+  font-size: 15px;
+}
+
+.downloadButtons {
+  display: flex;
+  gap: 3px;
+}
+
+.totalPlayers, .playerByDayHeader {
+  cursor: pointer;
+}

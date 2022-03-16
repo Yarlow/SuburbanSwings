@@ -1,0 +1,41 @@
+.formWrapper {
+  min-width: 500px;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+mat-spinner {
+  margin: auto
+}
+mat-form-field {
+  width: 100%
+}
+.teamMembers div mat-form-field  {
+  width: 100%;
+  margin: auto;
+}
+
+.teamMembers div {
+  align-items: center;
+}
+
+.teamMembers div h1 {
+  text-align: center;
+}
+
+.disclaimer {
+  margin-top: 25px;
+}
+
+@media screen and (max-width: 900px) {
+  .formWrapper {
+    min-width: 95%;
+  }
+  mat-form-field {
+    width: 100%;
+  }
+  .teamMembers div mat-form-field {
+    width: 100%;
+  }
+}

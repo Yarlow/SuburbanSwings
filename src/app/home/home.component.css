@@ -1,9 +1,17 @@
-.VideoButton{
+.VideoLeagueButton{
   font-size: 32px;
   padding: 1.5rem 4.5rem;
   position: absolute;
   bottom: 3%;
   right: 3%
+}
+
+.VideoEventButton {
+  font-size: 32px;
+  padding: 1.5rem 4.5rem;
+  position: absolute;
+  bottom: 3%;
+  left: 3%
 }
 
 .VideoWrapper {
@@ -59,6 +67,25 @@
 
 }
 
+.VidTitleH1 {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left:50%;
+  /* font-size: 5rem; */
+  transform: translate(-50%, -50%);
+  width: 75%;
+  text-align: center;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  font-size:6rem;
+  user-select: none;
+  white-space: nowrap;
+
+  /* text-transform: uppercase; */
+  font-weight: 500;
+}
+
 .VidFooter {
   position: absolute;
   z-index: 1;
@@ -72,15 +99,43 @@
   user-select: none;
 }
 
-@media screen and (max-width: 700px) {
-  .VideoButton {
+@media screen and (max-width: 1020px) {
+  .VideoLeagueButton {
     height: auto;
     position: absolute;
-    padding: 0.1rem 0.5rem;
-    font-size: 13px;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
     bottom: 5%;
     /* display: none */
   }
+
+  .VideoEventButton {
+    height: auto;
+    position: absolute;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
+    bottom: 5%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .VideoLeagueButton {
+    height: auto;
+    position: absolute;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
+    bottom: 5%;
+    /* display: none */
+  }
+
+  .VideoEventButton {
+    height: auto;
+    position: absolute;
+    padding: 0.1em 0.5em;
+    font-size: 24px;
+    bottom: 5%;
+  }
+
   .VideoDiv .MainVideo {
 
   }
@@ -93,15 +148,9 @@
   .VidTitle{
     top: 45%;
     font-size: 42px;
-    width:100%;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .whatweoffer h1 {
-    font-size: 50px !important;
-    font-weight: normal;
-    white-space: normal !important;
-    line-height: 1;
+    width:98%;
+    /* margin-left: 10px;
+    margin-right: 10px; */
   }
   .BelowVideo {
     margin: 80px 10px !important;
@@ -109,9 +158,9 @@
 }
 @media screen and (max-width: 1000px) {
   .VidTitle {
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 100%;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    width: 98%;
   }
 }
 @media screen and (max-width: 400px) {
@@ -128,33 +177,10 @@
   .BelowVideo {
     margin: 80px 10px !important;
   }
-  .whatweoffer h1 {
-    font-size: 32px !important;
-    font-weight: bold;
-    white-space: normal !important;
-  }
 }
 
 .BelowVideo {
   /* margin-top: 200px; */
   /* padding: 30px; */
   margin: 80px 100px;
-}
-
-.whatweoffer {
-  /* width: min-content; */
-  text-align: center;
-}
-
-.whatweoffer h1 {
-  font-size: 60px;
-  color: #057a82;
-  /* white-space: nowrap; */
-  line-height: 1;
-
-  font-family: 'Orbitron', sans-serif;
-}
-
-.whatweoffer h2 {
-  font-size: 32px;
 }

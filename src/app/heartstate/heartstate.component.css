@@ -1,0 +1,26 @@
+.wrapper {
+  margin: 80px 100px;
+}
+
+.heartstatelogo {
+  width: 250px;
+}
+/* .HS-logo-name {
+  display: flex;
+  flex-direction: row;
+} */
+
+.HS-logo-name h1 {
+  font-family: Chunkfive, arial, helvetica, sans-serif;
+  text-align: center;
+  width: 100%;
+  font-size: 32px;
+}
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+}

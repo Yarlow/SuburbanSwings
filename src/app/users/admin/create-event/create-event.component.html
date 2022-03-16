@@ -1,0 +1,120 @@
+<div class="container">
+  <h3>Don't use yet</h3>
+  <mat-card>
+    <form (submit)="onSubmit()" [formGroup]="form" style="display: flex; flex-direction: column;">
+
+      <mat-form-field>
+        <input type="text" matInput formControlName="eventName" placeholder="Event Name">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <mat-select formControlName="selectedLocation">
+          <mat-option *ngFor="let location of locations" [value]="location">{{location.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start Date" formControlName="startDate">
+          <input matEndDate placeholder="End Date" formControlName="endDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Event Type</mat-label>
+        <mat-select formControlName="eventType">
+          <mat-option *ngFor="let type of eventTypes" [value]="type">{{type}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <p>Pick days for the event</p>
+      <mat-chip-list aria-label="Day Selection">
+        <mat-chip (click)="showSunday=!showSunday" color="accent" selected>Sunday</mat-chip>
+        <mat-chip (click)="showMonday=!showMonday" color="accent" selected>Monday</mat-chip>
+        <mat-chip (click)="showTuesday=!showTuesday" color="accent" selected>Tuesday</mat-chip>
+        <mat-chip (click)="showWednesday=!showWednesday" color="accent" selected>Wednesday</mat-chip>
+        <mat-chip (click)="showThursday=!showThursday" color="accent" selected>Thursday</mat-chip>
+        <mat-chip (click)="showFriday=!showFriday" color="accent" selected>Friday</mat-chip>
+        <mat-chip (click)="showSaturday=!showSaturday" color="accent" selected>Saturday</mat-chip>
+
+      </mat-chip-list>
+      <mat-form-field *ngIf="showSunday">
+        <mat-label>Sunday Times</mat-label>
+        <mat-select formControlName="sundayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showMonday">
+        <mat-label>Monday Times</mat-label>
+        <mat-select formControlName="mondayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showTuesday">
+        <mat-label>Tuesday Times</mat-label>
+        <mat-select formControlName="tuesdayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showWednesday">
+        <mat-label>Wednesday Times</mat-label>
+        <mat-select formControlName="wednesdayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showThursday">
+        <mat-label>Thursday Times</mat-label>
+        <mat-select formControlName="thursdayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showFriday">
+        <mat-label>Friday Times</mat-label>
+        <mat-select formControlName="fridayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field *ngIf="showSaturday">
+        <mat-label>Saturday Times</mat-label>
+        <mat-select formControlName="saturdayTimes" multiple>
+          <mat-option *ngFor="let time of availableTimes" [value]="time">{{time}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <div class="setupWrapper">
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="eventPrice" placeholder="Price" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="playersPerTeam" placeholder="Players/Team" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="holesPerRound" placeholder="Holes per round" type="number">
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill">
+          <input matInput formControlName="maxTeams" placeholder="Num Teams (leave blank to count timeslots)" type="number">
+        </mat-form-field> -->
+      </div>
+
+      <mat-form-field appearance="fill">
+        <textarea type="text" matInput formControlName="summaryText" placeholder="Event Summary" ></textarea>
+      </mat-form-field>
+
+      <!-- <p>image??</p> -->
+      <div>
+        <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+        <input type="file" #filePicker (change)="onImagePicked($event)">
+      </div>
+
+      <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+        <img [src]="imagePreview" [alt]="form.value.title">
+      </div>
+
+      <button mat-raised-button color="accent" (click)="onSubmit">Preview</button>
+    </form>
+
+
+  </mat-card>
+</div>

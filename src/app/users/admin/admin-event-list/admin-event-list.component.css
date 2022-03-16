@@ -1,0 +1,15 @@
+.eventListItem:hover {
+  filter: brightness(0.85);
+  cursor: pointer;
+}
+
+.animateComponent {
+  max-height: 0px;
+  overflow-y: hidden;
+  transition: ease-in-out 1s max-height;
+}
+
+.animateComponent.opened {
+  max-height: 500px;
+  transition: ease-in-out 1s max-height;
+}

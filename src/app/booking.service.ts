@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
 import { NgForm } from "@angular/forms";
+import { environment } from "src/environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class BookingService {
@@ -17,7 +18,7 @@ export class BookingService {
       additionalInfo: resForm.value.additionalInfo
 
     }
-    return this.http.post<{message: string}>('http://localhost:5000/reservation', reservationInfo)
+    return this.http.post<{message: string}>(environment.apiUrl + 'reservation', reservationInfo)
 
   }
 

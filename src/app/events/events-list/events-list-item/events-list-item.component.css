@@ -1,0 +1,59 @@
+.imgContainer {
+  position: relative;
+}
+
+.eventCard {
+  padding: 0;
+  max-width: 350px;
+  min-width: 250px;
+  margin: auto;
+  /* height: 100%; */
+  width: 100%;
+}
+
+.eventSignUpButton {
+  position:absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+}
+
+.teamSizeandPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.eventHeader {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  font-size: 32px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.eventLocation {
+  padding-left: 1rem;
+  margin-top: 20px;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.eventDates {
+  padding-left: 1rem;
+  font-size: 16px;
+}
+
+.gameSetup {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.availableSlots {
+  padding-left: 1rem;
+  font-size: 16px;
+}
