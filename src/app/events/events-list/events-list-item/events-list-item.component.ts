@@ -10,15 +10,19 @@ import { SSEvent } from '../../event.model';
 export class EventsListItemComponent implements OnInit {
 
   @Input() eventElement : SSEvent;
+  availableSlots: number = 0
 
   constructor( private router: Router ) { }
 
   ngOnInit(): void {
-    console.log(this.eventElement)
+    for (let day of Object.keys(this.eventElement.availableTimes)) {
+      console.log(this.eventElement.availableTimes[day].length)
+      this.availableSlots += this.eventElement.availableTimes[day].length
+    }
   }
 
   onGoToSignup() {
-      this.router.navigate(['Events/signup', this.eventElement._id])
+    this.router.navigate(['Events/signup', this.eventElement._id])
   }
 
 }

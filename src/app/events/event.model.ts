@@ -22,6 +22,7 @@ export interface SSEvent {
   endDate: Date,
   eventType: string,
   price: number,
-  summaryText: string
+  summaryText: string,
+  image: string
 
 }

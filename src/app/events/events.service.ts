@@ -41,7 +41,8 @@ export class EventsService {
       },
       price: 60,
       eventType: "Tournament",
-      summaryText: "Teams of 2 will compete to win The Moth Cup, a custom trophy made by our brewer, and two $50 Nocterra gift cards. The course is a 9-hole par 3 course and is expected to take about one hour per team to play."
+      summaryText: "Teams of 2 will compete to win The Moth Cup, a custom trophy made by our brewer, and two $50 Nocterra gift cards. The course is a 9-hole par 3 course and is expected to take about one hour per team to play.",
+      image: "assets/Moth_Cup_4x3-min.jpg"
     }
   ]
 
@@ -98,6 +99,37 @@ export class EventsService {
   getTeamsByEvent(eventId) {
     console.log("eventId" , eventId);
     return this.http.get<{teams: SSTeam[]}>(environment.apiUrl + "teams/byEventId/" + eventId)
+  }
+
+  getJoinableEvents() {
+    this.http.get<{events: any}>(environment.apiUrl + 'events/allAvailableForUsers')
+      .subscribe(response => {
+        this.events = response.events
+        this.eventsUpdated.next([...this.events])
+      })
+  }
+
+  createEvent(event) {
+    // console.log(event.name)
+    // let name:string = event.name
+    let eventData = new FormData();
+    eventData.append("name", event.name)
+    eventData.append("location", event.location._id)
+    eventData.append("availableTimes", event.availableTimes)
+    eventData.append("setupAndRules", event.setupAndRules)
+    eventData.append("startDate", event.startDate)
+    eventData.append("endDate", event.endDate)
+    eventData.append("price", event.price)
+    eventData.append("eventType", event.eventType)
+    eventData.append("summaryText", event.summaryText)
+    eventData.append("image", event.image, event.name)
+
+    console.log(eventData.get('image'))
+
+    this.http.post<{message: string}>(environment.apiUrl + 'events', eventData)
+      .subscribe(response => {
+        console.log(response.message)
+      })
   }
 
 }

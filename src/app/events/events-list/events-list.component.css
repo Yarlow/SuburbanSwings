@@ -6,3 +6,20 @@
   height: max-content;
 
 }
+
+.event-list {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+mat-spinner {
+  margin: auto
+}
+
+@media screen and (max-width: 860px) {
+  .event-list {
+    flex-direction: column;
+  }
+}

@@ -16,6 +16,7 @@ import { EventSignupComponent } from './events/event-signup/event-signup.compone
 import { AdminComponent } from './users/admin/admin.component';
 import { AuthGuard } from './users/auth.guard';
 import { LoginComponent } from './users/login/login.component';
+import { CreateEventComponent } from './users/admin/create-event/create-event.component';
 
 const routes: Routes = [
   {
@@ -114,6 +115,22 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       headerText: 'Admin Page'
+    }
+  },
+  {
+    path: 'admin/event',
+    component: CreateEventComponent,
+    canActivate: [AuthGuard],
+    data: {
+      headerText: 'Create Event'
+    }
+  },
+  {
+    path: 'admin/event/:eventID',
+    component: CreateEventComponent,
+    canActivate: [AuthGuard],
+    data: {
+      headerText: 'Edit Event'
     }
   }
 ];

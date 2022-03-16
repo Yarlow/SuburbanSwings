@@ -41,7 +41,7 @@ export class SignupComponent implements OnInit {
     this.isLoading = true;
     this.leagueService.getSeasonInfo().then(seasonData => {
       this.seasonInfo = seasonData
-      this.availableTimes = this.seasonInfo.season.availableTimes
+      this.availableTimes = this.seasonInfo.availableTimes
       this.availableDays = this.filterEmptyDays(this.availableTimes)
       this.isLoading = false;
       // console.log(this.availableTimes)

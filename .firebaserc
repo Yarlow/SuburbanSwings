@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "suburban-swings"
-  }
+    "default": "suburban-swings",
+    "test": "suburban-swings-fe-test"
+  },
+  "targets": {}
 }

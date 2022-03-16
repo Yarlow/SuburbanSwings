@@ -19,6 +19,7 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll'
+import { MatChipsModule } from '@angular/material/chips'
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -45,6 +46,11 @@ import { AdminComponent } from './users/admin/admin.component';
 import { AdminEventListComponent } from './users/admin/admin-event-list/admin-event-list.component';
 import { AdminEventViewComponent } from './users/admin/admin-event-list/admin-event-view/admin-event-view.component';
 import { LoginComponent } from './users/login/login.component';
+import { CreateEventComponent, EventCreatePreviewDialog } from './users/admin/create-event/create-event.component';
+import { AboutUsComponent } from './home/about-us/about-us.component';
+import { AboutUsGridComponent } from './home/about-us/about-us-grid/about-us-grid.component';
+import { EventDetailsComponent } from './home/event-details/event-details.component';
+import { AdminLocationsComponent } from './users/admin/admin-locations/admin-locations.component';
 
 // import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
 // import { NgxStripeModule } from 'ngx-stripe';
@@ -75,7 +81,13 @@ import { LoginComponent } from './users/login/login.component';
     AdminComponent,
     AdminEventListComponent,
     AdminEventViewComponent,
-    LoginComponent
+    LoginComponent,
+    CreateEventComponent,
+    EventCreatePreviewDialog,
+    AboutUsComponent,
+    AboutUsGridComponent,
+    EventDetailsComponent,
+    AdminLocationsComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +111,8 @@ import { LoginComponent } from './users/login/login.component';
     MatDialogModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatChipsModule
     // NgxStripeModule.forRoot('pk_test_51JtfA0GnXfM47IJy8Jc0EiBvuiLDlgo3K8rSOFHBIF2OxybYsFyo5cf6vKwLvvlcrNLhadkHmPSyHJiWG4QKDtJN00O2Ru2FXn'),
     // MatInput,
   ],

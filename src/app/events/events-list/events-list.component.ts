@@ -10,18 +10,50 @@ import { SSEvent } from '../event.model'
 })
 export class EventsListComponent implements OnInit {
 
-  events: SSEvent[];
+  events: SSEvent[] = [];
   eventsSub: Subscription;
+  isLoading: boolean = false;
 
   constructor(private eventsService: EventsService) { }
 
   ngOnInit(): void {
-    this.events = this.eventsService.getEvents();
-    // this.eventsService.getAllEvents()
-    // this.eventsSub = this.eventsService.getEventsUpdateListener().subscribe( (events: SSEvent[]) => {
-    //   this.events = events
-    //   console.log(events)
-    // })
+    // let tempevents = this.eventsService.getEvents();
+    // // make this better
+    // let today = new Date()
+    // console.log(today)
+    // for (let event of tempevents) {
+    //
+    //   console.log("today > event", today > event.startDate)
+    //   console.log("today < event", today < event.startDate)
+    //   console.log(event.startDate)
+    //   if (new Date(event.startDate) > today ) {
+    //     console.log("pushin p")
+    //     this.events.push(event)
+    //   }
+    //   console.log(this.events)
+    // }
+    this.eventsService.getJoinableEvents()
+    this.isLoading = true;
+    this.eventsSub = this.eventsService.getEventsUpdateListener().subscribe( (events: SSEvent[]) => {
+      this.events = events
+      // console.log(events)
+      this.isLoading = false;
+      // let tempevents = events;
+      //
+      // let today = new Date()
+      // console.log(today)
+      // for (let event of tempevents) {
+      //
+      //   console.log("today > event", today > event.startDate)
+      //   console.log("today < event", today < event.startDate)
+      //   console.log(event.startDate)
+      //   if (new Date(event.startDate) > today ) {
+      //     console.log("pushin p")
+      //     this.events.push(event)
+      //   }
+      //   console.log(this.events)
+      // }
+    })
   }
 
 }

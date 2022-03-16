@@ -152,12 +152,6 @@
     /* margin-left: 10px;
     margin-right: 10px; */
   }
-  .whatweoffer h1 {
-    font-size: 50px !important;
-    font-weight: normal;
-    white-space: normal !important;
-    line-height: 1;
-  }
   .BelowVideo {
     margin: 80px 10px !important;
   }
@@ -183,33 +177,10 @@
   .BelowVideo {
     margin: 80px 10px !important;
   }
-  .whatweoffer h1 {
-    font-size: 32px !important;
-    font-weight: bold;
-    white-space: normal !important;
-  }
 }
 
 .BelowVideo {
   /* margin-top: 200px; */
   /* padding: 30px; */
   margin: 80px 100px;
-}
-
-.whatweoffer {
-  /* width: min-content; */
-  text-align: center;
-}
-
-.whatweoffer h1 {
-  font-size: 60px;
-  color: #057a82;
-  /* white-space: nowrap; */
-  line-height: 1;
-
-  font-family: 'Orbitron', sans-serif;
-}
-
-.whatweoffer h2 {
-  font-size: 32px;
 }

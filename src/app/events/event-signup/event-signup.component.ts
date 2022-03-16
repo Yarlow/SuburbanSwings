@@ -33,6 +33,19 @@ export class EventSignupComponent implements OnInit {
   constructor(private eventsService: EventsService, public dialog: MatDialog,  public route: ActivatedRoute, private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+
+    this.form = new FormGroup({
+      'teamName': new FormControl(null, {validators: [Validators.required]}),
+      'tMem1Name': new FormControl(null, {validators: [Validators.required]}),
+      'tMem1Email': new FormControl(null, {validators: [Validators.required]}),
+      'tMem1Phone': new FormControl(null, {validators: [Validators.required]}),
+      'tMem2Name': new FormControl(null, {validators: [Validators.required]}),
+      'tMem2Email': new FormControl(null, {validators: [Validators.required]}),
+      'tMem2Phone': new FormControl(null, {validators: [Validators.required]}),
+      'selectedDay': new FormControl(null, {validators: [Validators.required]}),
+      'selectedTime': new FormControl(null, {validators: [Validators.required]})
+    })
+
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       this.eventID = paramMap.get('eventID')
       this.isLoading = true;
@@ -42,21 +55,16 @@ export class EventSignupComponent implements OnInit {
         this.availableTimes = this.eventInfo.availableTimes
         this.availableDays = this.filterEmptyDays(this.availableTimes)
         this.isLoading = false;
+        if (this.availableDays.length === 1) {
+          this.form.patchValue({'selectedDay': this.availableDays[0]})
+        }
       }).catch(err => {
         console.log("Bigg error energy")
       })
 
-      this.form = new FormGroup({
-        'teamName': new FormControl(null, {validators: [Validators.required]}),
-        'tMem1Name': new FormControl(null, {validators: [Validators.required]}),
-        'tMem1Email': new FormControl(null, {validators: [Validators.required]}),
-        'tMem1Phone': new FormControl(null, {validators: [Validators.required]}),
-        'tMem2Name': new FormControl(null, {validators: [Validators.required]}),
-        'tMem2Email': new FormControl(null, {validators: [Validators.required]}),
-        'tMem2Phone': new FormControl(null, {validators: [Validators.required]}),
-        'selectedDay': new FormControl(null, {validators: [Validators.required]}),
-        'selectedTime': new FormControl(null, {validators: [Validators.required]})
-      })
+
+
+
 
     })
     // this.isLoading = true;
@@ -94,7 +102,9 @@ export class EventSignupComponent implements OnInit {
     let removeCol = time.split(':')
     let halfOfDay = removeCol[1].substring(2);
     let hour = halfOfDay === 'am' ? parseInt(removeCol[0]) : parseInt(removeCol[0]) + 12;
-
+    if (halfOfDay === 'pm' && parseInt(removeCol[0]) == 12) {
+      hour -= 12;
+    }
     // console.log(time , '->', hour * 100 + parseInt(removeCol[1]))
     return hour * 100 + parseInt(removeCol[1])
   }

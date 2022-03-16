@@ -1,6 +1,7 @@
 import { HttpClient  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { SSEvent } from '../events/event.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +17,11 @@ export class LeagueService {
   constructor(private http: HttpClient ) { }
 
 
-  getSeasonInfo() {
+  getSeasonInfo() : Promise<SSEvent> {
     return new Promise((resolve, reject) => {
-      this.http.get(environment.apiUrl + "seasons/").subscribe(responseData => {
+      this.http.get<{event: SSEvent}>(environment.apiUrl + "events/findById/" + "61edb9bc428ebd6033df93fa").subscribe(responseData => {
         if (responseData) {
-          resolve(responseData)
+          resolve(responseData.event)
         }
       })
     })
