@@ -39,9 +39,9 @@ export class EventSignupComponent implements OnInit {
       'tMem1Name': new FormControl(null, {validators: [Validators.required]}),
       'tMem1Email': new FormControl(null, {validators: [Validators.required]}),
       'tMem1Phone': new FormControl(null, {validators: [Validators.required]}),
-      'tMem2Name': new FormControl(null, {validators: [Validators.required]}),
-      'tMem2Email': new FormControl(null, {validators: [Validators.required]}),
-      'tMem2Phone': new FormControl(null, {validators: [Validators.required]}),
+      // 'tMem2Name': new FormControl(null, {validators: [Validators.required]}),
+      // 'tMem2Email': new FormControl(null, {validators: [Validators.required]}),
+      // 'tMem2Phone': new FormControl(null, {validators: [Validators.required]}),
       'selectedDay': new FormControl(null, {validators: [Validators.required]}),
       'selectedTime': new FormControl(null, {validators: [Validators.required]})
     })
@@ -57,6 +57,14 @@ export class EventSignupComponent implements OnInit {
         this.isLoading = false;
         if (this.availableDays.length === 1) {
           this.form.patchValue({'selectedDay': this.availableDays[0]})
+        }
+
+        if (this.eventInfo.setupAndRules.playersPerTeam > 1) {
+            this.form.addControl('tMem2Name', new FormControl(null, {validators: [Validators.required]}));
+            this.form.addControl('tMem2Email', new FormControl(null, {validators: [Validators.required]}));
+            this.form.addControl('tMem2Phone', new FormControl(null, {validators: [Validators.required]}));
+
+
         }
       }).catch(err => {
         console.log("Bigg error energy")
@@ -133,11 +141,13 @@ export class EventSignupComponent implements OnInit {
       phone: this.form.value.tMem1Phone
     }
 
+    //fix this later idiot
     let player2 = {
-      name: this.form.value.tMem2Name,
-      email: this.form.value.tMem2Email,
-      phone: this.form.value.tMem2Phone
+      name: this.form.value.tMem2Name ? this.form.value.tMem2Name : "nullbcdumb",
+      email: this.form.value.tMem2Email ? this.form.value.tMem2Email : "nullbcdumb",
+      phone: this.form.value.tMem2Phone ? this.form.value.tMem2Phone : "nullbcdumb",
     }
+
 
     let team = {
       teamName: this.form.value.teamName,
