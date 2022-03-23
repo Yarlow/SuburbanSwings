@@ -134,18 +134,23 @@ export class EventSignupComponent implements OnInit {
   }
 
   onSignUp() {
-
+    let players = []
     let player1 = {
       name: this.form.value.tMem1Name,
       email: this.form.value.tMem1Email,
       phone: this.form.value.tMem1Phone
     }
 
+    players.push(player1)
+
     //fix this later idiot
-    let player2 = {
-      name: this.form.value.tMem2Name ? this.form.value.tMem2Name : "nullbcdumb",
-      email: this.form.value.tMem2Email ? this.form.value.tMem2Email : "nullbcdumb",
-      phone: this.form.value.tMem2Phone ? this.form.value.tMem2Phone : "nullbcdumb",
+    if (this.eventInfo.setupAndRules.playersPerTeam > 1) {
+      let player2 = {
+        name: this.form.value.tMem2Name ? this.form.value.tMem2Name : "nullbcdumb",
+        email: this.form.value.tMem2Email ? this.form.value.tMem2Email : "nullbcdumb",
+        phone: this.form.value.tMem2Phone ? this.form.value.tMem2Phone : "nullbcdumb",
+      }
+      players.push(player2)
     }
 
 
@@ -158,7 +163,7 @@ export class EventSignupComponent implements OnInit {
 
     this.isLoading = true
 
-    this.eventsService.createTeam(player1, player2, team, this.eventID).then(response => {
+    this.eventsService.createTeam(players, team, this.eventID).then(response => {
       this.router.navigate(['/']);
 
     }).catch(err => {

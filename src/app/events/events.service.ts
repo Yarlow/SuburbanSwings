@@ -70,10 +70,9 @@ export class EventsService {
     })
   }
 
-  createTeam(player1, player2, team, eventID) {
+  createTeam(players, team, eventID) {
     let body = {
-      player1: player1,
-      player2: player2,
+      players: players,
       team: team,
       eventID
     }
