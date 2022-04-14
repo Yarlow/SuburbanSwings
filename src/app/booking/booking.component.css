@@ -29,7 +29,7 @@ color: white;
 
 .submitButton {
   position: relative;
-  
+
 }
 
 .cityStateZip{
@@ -67,4 +67,21 @@ color: white;
     flex-direction: column;
     gap: 0;
   }
+}
+
+.tertiary-header {
+  font-size: 24px;
+}
+
+.primary-header {
+  font-size: 32px;
+}
+
+.deal-info {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.dealwrapper {
+  margin-top: 24px;
 }
