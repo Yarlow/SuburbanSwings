@@ -1,26 +1,9 @@
-.whatweoffer {
-  /* width: min-content; */
-  text-align: center;
+/* .what-we-offer--content {
+  padding-left: 15rem;
+  padding-right: 15rem;
 }
 
-.whatweoffer h1 {
-  font-size: 60px;
-  color: #057a82;
-  /* white-space: nowrap; */
-  line-height: 1;
-
-  font-family: 'Orbitron', sans-serif;
-}
-
-.whatweoffer h2 {
-  font-size: 32px;
-}
-
-.about-us--shortDesc {
-  font-size: 20px;
-}
-
-.what-we-offer--content {
+.what-we-offer--flex {
   display: flex;
   flex-direction: row;
 }
@@ -33,27 +16,10 @@
 
 .what-we-offer--content-text {
   padding: 30px;
-}
-
-@media screen and (max-width: 700px) {
-  .whatweoffer h1 {
-    font-size: 50px !important;
-    font-weight: normal;
-    white-space: normal !important;
-    line-height: 1;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .whatweoffer h1 {
-    font-size: 32px !important;
-    font-weight: bold;
-    white-space: normal !important;
-  }
-}
-
-@media screen and (max-width: 1200px) {
-  .what-we-offer--content {
+} */
+/* 
+@media screen and (max-width: 1400px) {
+  .what-we-offer--flex {
     flex-direction: column !important;
   }
-}
+} */

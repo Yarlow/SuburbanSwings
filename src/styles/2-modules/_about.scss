@@ -1,0 +1,32 @@
+.what-we-offer--content {
+  padding-left: 15rem;
+  padding-right: 15rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+.what-we-offer--flex {
+  display: flex;
+  flex-direction: row;
+
+  @media only screen and (max-width: $bp-huge) {
+    flex-direction: column;
+  }
+}
+
+.what-we-offer--content-img {
+  height: 300px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.what-we-offer--content-text {
+  padding: 3rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 3rem 0;
+  }
+}

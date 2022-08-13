@@ -1,0 +1,118 @@
+/* ========================
+TYPOGRAPHY
+=========================*/
+// .TEST {
+//   font-size: 400px;
+// }
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+
+  line-height: 1.7;
+  color: $color-grey-dark;
+
+  box-sizing: border-box;
+}
+
+.heading-primary {
+  color: $white;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+
+  margin-bottom: 6rem;
+
+  backface-visibility: hidden;
+
+  &--main {
+    // font-family: "Orbitron";
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    white-space: nowrap;
+
+    @media only screen and (max-width: $bp-largest) {
+      font-size: 4rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      letter-spacing: .5rem;
+      font-size: 3.5rem;
+    }
+  }
+
+  &--sub {
+    display: block;
+    white-space: nowrap;
+    letter-spacing: 0.5rem;
+    font-size: 2.2rem;
+
+    @media only screen and (max-width: $bp-largest) {
+      font-size: 1.8rem;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      letter-spacing: 0.2rem;
+      font-size: 1.4rem;
+    }
+
+    &-sim {
+      font-weight: 700;
+    }
+
+    &-move {
+      font-style: italic;
+
+    }
+  }
+}
+
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block; //shrinks width to be only as wide as the texts
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+
+  background-clip: text;
+  -webkit-background-clip: text; // for some reason have to do these three lines to get to work
+  color: transparent;
+
+  letter-spacing: 2px;
+  transition: all .2s; // allows a lil animation when hovering
+
+  // @include respond(tab-port) {
+  //   font-size: 3rem;
+  // }
+  //
+  // @include respond(phone) {
+  //   font-size: 2.5rem;
+  // }
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: .5rem 1rem 2rem rgba($black, .2);
+  }
+}
+
+.heading-tertiary {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &--white {
+    color: $white;
+  }
+}
+
+.paragraph {
+  font-size: $default-font-size;
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.text-align-center {
+  text-align: center;
+}

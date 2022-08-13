@@ -1,0 +1,43 @@
+.header {
+  // background-color: $color-primary;
+  height: 95vh;
+  // width: 100%;
+  background-image: linear-gradient(to right bottom,rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url('../../assets/hero2-2.jpg');
+  // background-image: linear-gradient(to right bottom,rgba($color-primary-light, .8), rgba($color-primary-dark, .8)), url('../../assets/natour.jpg');
+  // background-size: calc(max(100%, 2077px));
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  &__cta-events {
+    position: absolute;
+    bottom: 6rem;
+    left: 6rem;
+    text-align: center;
+    @media only screen and (max-width: $bp-large) {
+      bottom: 16rem;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+
+  &__cta-booking {
+    position: absolute;
+    bottom: 6rem;
+    right: 6rem;
+    text-align: center;
+    @media only screen and (max-width: $bp-large) {
+      bottom: 6rem;
+      right: 50%;
+      transform: translate(50%, 50%);
+    }
+  }
+}

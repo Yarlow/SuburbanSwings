@@ -1,21 +1,17 @@
 
 
-<div class="sidebar" *ngIf="showNav || !mobile">
-  <!-- <button style="position: absolute; top: 5px; right: 5px;" style="" *ngIf="mobile" (click)="showNav = !showNav">X</button> -->
+<!-- <div class="sidebar" *ngIf="showNav || !mobile">
   <fa-icon [icon]="faTimes"  style="margin: 0; position: absolute; top: 5px; right: 5px; color:#b6e0e2; margin: -5px; padding:17px;" size="2x"  *ngIf="mobile" (click)="showNav = !showNav"></fa-icon>
   <a routerLink="/" style="text-decoration:none">
     <img style="width: 100%" src="assets/natlogo-min.png" alt="">
     <div style="width: 100%; text-align:center; height: auto;"></div>
     <img src="assets/SSOrbitronWhite.png" style="width: 95%; margin-left: auto; margin-right: auto; display: block;" alt="">
   </a>
-    <ul>
+    <ul class="side-nav">
         <li><a routerLink="/" (click)="onNav()">Home</a></li>
-        <!-- <li><a routerLink="/about-the-tech">Tech shit</a></li> -->
         <li><a routerLink="/booking" (click)="onNav()">Booking</a></li>
-        <!-- <li style="text-align:left; line-height: 1.2;"><a routerLink="/Heart-State-Brewing" (click)="onNav()">Heart State<br><span >Brewing</span></a></li> -->
         <li style="text-align:left; line-height: 1.2;"><a routerLink="/Events" (click)="onNav()">Events</a></li>
 
-        <!-- <li><a routerLink="/league">Join a League</a></li> -->
         <li><a routerLink="/ContactUs" (click)="onNav()">Contact</a></li>
         <li><a routerLink="/FAQ" (click)="onNav()">FAQ</a></li>
 
@@ -23,18 +19,36 @@
     <div class="social_media">
       <a href="https://www.instagram.com/suburbanswings/"><fa-icon class="socialLink" [icon]="faInstagram" size="3x" style="color: #ffffff"></fa-icon></a>
     </div>
+</div> -->
+<div class="navigation" [ngClass]="{'navigation--show' : showNav && mobile }">
+  <img style="width: 100%" src="assets/natlogo-min.png" alt="">
+  
+  <ul class="side-nav">
+    <li class="side-nav__item" routerLinkActive="side-nav__item--active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" (click)="onNav()" class="side-nav__link">Home</a></li>
+    <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/booking" (click)="onNav()" class="side-nav__link">Booking</a></li>
+    <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/Events" (click)="onNav()" class="side-nav__link">Events</a></li>
+    <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/ContactUs" (click)="onNav()" class="side-nav__link">Contact</a></li>
+    <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/FAQ" (click)="onNav()" class="side-nav__link">FAQ</a></li>
+  </ul>
 </div>
-<div class="main_content" *ngIf="!showNav || !mobile">
-  <div class="header" ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-80px'" [valueWhenShown]="'0px'">
+<!-- <fa-icon *ngIf="mobile" (click)="showNav = !showNav" class="nav-button" style="" [icon]="faBars"></fa-icon> -->
+<svg class="nav-button" *ngIf="mobile" (click)="showNav = !showNav" >
+  <use xlink:href="assets/sprite.svg#icon-menu"></use>
+</svg>
+<div class="content" [ngClass]="{'content--hide' : showNav && mobile}">
+  <!-- <div class="heading" ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-80px'" [valueWhenShown]="'0px'">
     <p>{{ toolbarText }}
       <button *ngIf="userIsAuthenticated" (click)="onLogout()">Logout</button>
       <a routerLink="/admin"><button *ngIf="role === 'admin'">Admin page</button></a>
 
-      <!-- <button *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right;">BUTT</button> -->
-      <fa-icon *ngIf="mobile" (click)="showNav = !showNav" style="display: inline; float:right; padding:0; margin:0;" [icon]="faBars"></fa-icon>
     </p>
-  </div>
+  </div> -->
   <div class="info">
     <router-outlet></router-outlet>
   </div>
+  <!-- <div>
+    <app-footer></app-footer>
+  </div> -->
+  <!-- <div style="margin-top: auto;"></div> -->
+
 </div>

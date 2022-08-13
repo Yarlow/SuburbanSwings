@@ -1,32 +1,36 @@
-<div class="contactContainer">
-  <mat-card>
-    <h2>Email Us</h2>
-    <form (submit)="onSendEmail(emailForm)" #emailForm="ngForm">
-      <mat-form-field>
-        <input
-        placeholder="Enter Your Name"
-        type="text"
-        matInput
-        name="name"
-        color="primary"
-        ngModel
-        required
-        style="width: 100%">
-        <mat-error>Please enter your name</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-        placeholder="Email or phone"
-        type="text"
-        name="contactInfo"
-        ngModel
-        matInput
-        color="primary"
-        required>
-        <mat-error>Contact Info Required</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <textarea name="name" rows="8" cols="80"
+<section class="section-contact-us">
+  <div class="contact">
+    <div class="u-center-text">
+      <h2 class="heading-secondary">Reach out to us</h2>
+    </div>
+
+    <div class="contact__form">
+      <form (submit)="onSendEmail(emailForm)" #emailForm="ngForm">
+        <mat-form-field>
+          <input
+          placeholder="Enter Your Name"
+          type="text"
+          matInput
+          name="name"
+          color="primary"
+          ngModel
+          required
+          style="width: 100%">
+          <mat-error>Please enter your name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          placeholder="Email or phone"
+          type="text"
+          name="contactInfo"
+          ngModel
+          matInput
+          color="primary"
+          required>
+          <mat-error>Contact Info Required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea name="name" rows="8" cols="80"
           placeholder="What can we help you with?"
           type="text"
           name="content"
@@ -39,10 +43,10 @@
         </textarea>
         <mat-error>Email Content Required</mat-error>
       </mat-form-field>
-    <button class="submitButton" mat-raised-button type="submit" color="accent">Send Email</button>
-  </form>
-</mat-card>
+      <!-- <button class="submitButton" mat-raised-button type="submit" color="accent">Send Email</button> -->
+      <button class="btn btn--pink">Send Email</button>
+    </form>
 
-
-
-</div>
+  </div>
+  </div>
+</section>

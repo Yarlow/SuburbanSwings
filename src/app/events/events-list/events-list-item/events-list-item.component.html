@@ -1,49 +1,67 @@
 
 <!-- <div class="row"> -->
   <!-- <div class="col-xl-3 col-lg-4 col-md-5"> -->
-    <mat-card class="eventCard">
-      <h2 style="margin: 1rem;"></h2>
-      <p class="eventHeader">
-        {{eventElement.name}}
-      </p>
-      <p class="eventLocation">
-        At {{eventElement.location.name}}
-      </p>
+    <div class="event__card">
+      <!-- <h2 style="margin: 1rem;"></h2> -->
+      <div class="u-center-text">
+        <h3 class="event__header">
+          {{eventElement.name}}
+        </h3>
+
+        <!-- <h3 class="heading-tertiary">
+        </h3> -->
+      </div>
+
+      <div class="event__location u-margin-bottom-small">
+        <p class="event__location--text">
+          At {{eventElement.location.name}}
+        </p>
+        <!-- <svg class="event__location--icon">
+          <use xlink:href="assets/sprite.svg#icon-info"></use>
+        </svg> -->
+        <!-- <button mat-icon-button class="infoIcon" color="accent" matTooltip="BAH">
+          <fa-icon [icon]="faInfo"></fa-icon>
+
+
+        </button> -->
+
+      </div>
       <div class="teamSizeandPrice" *ngIf="eventElement.setupAndRules.playersPerTeam > 1">
-        <h3 style="margin: 1rem;">Teams of {{eventElement.setupAndRules.playersPerTeam}}</h3>
-        <h3 style="margin: 1rem;">${{eventElement.price}} per team</h3>
+        <p class="paragraph" >Teams of {{eventElement.setupAndRules.playersPerTeam}}</p>
+        <p class="paragraph" >${{eventElement.price}} per team</p>
       </div>
       <div class="teamSizeandPrice" *ngIf="eventElement.setupAndRules.playersPerTeam == 1">
-        <h3 style="margin: 1rem;">Single Player Event</h3>
-        <h3 style="margin: 1rem;">${{eventElement.price}} per player</h3>
+        <p class="paragraph">Single Player Event</p>
+        <p class="paragraph">${{eventElement.price}} per slot</p>
       </div>
-      <p class="eventDates" *ngIf="eventElement.startDate !== eventElement.endDate">
+      <p class="paragraph" *ngIf="eventElement.startDate !== eventElement.endDate">
         {{ eventElement.startDate | date }}
         -
         {{ eventElement.endDate | date }}
       </p>
 
-      <p class="eventDates" *ngIf="eventElement.startDate === eventElement.endDate">
+      <p class="paragraph" *ngIf="eventElement.startDate === eventElement.endDate">
         {{ eventElement.startDate | date }}
       </p>
 
-      <p class="availableSlots">
+      <p class="paragraph">
         Available Slots: {{availableSlots}}
       </p>
 
-      <p class="gameSetup">
+      <p class="paragraph">
         {{eventElement.summaryText}}
 
       </p>
 
 
-      <div class="imgContainer">
+      <div class="event__img-container">
         <!-- <img src="assets/nocterra-outside-min.jpg" alt="" style="width:100%; overflow: hidden;"> -->
-        <img src="{{eventElement.image}}" alt="" style="width:100%; overflow: hidden;">
-
-        <button (click)="onGoToSignup()" mat-raised-button color="primary" class="eventSignUpButton">Sign Up</button>
+        <img src="{{eventElement.image}}" alt="Event image" class="event__img">
+        <div class="event__cta">
+          <button (click)="onGoToSignup()"class="btn btn--pink">Sign Up</button>
+        </div>
       </div>
-    </mat-card>
+    </div>
 
   <!-- </div> -->
 <!-- </div> -->

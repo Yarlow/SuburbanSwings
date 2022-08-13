@@ -1,0 +1,35 @@
+.section-about {
+  background-color: $color-grey-light-2;
+  padding-top: 20rem;
+  padding-bottom: 15rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    padding-top: 10rem;
+    padding-bottom: 7rem;
+  }
+  // margin-top: -20vh; //calculated by using the polygon of the header. Left side is 95vh tall, right side is 75vh tall. 95-75 = 20vh
+
+  // @include respond(tab-port) {
+  //   padding: 30rem 0;
+  // }
+
+  // @media only screen and (max-width: $bp-largest) {
+  //
+  // }
+}
+
+.section-skytrak-description {
+  padding: 15rem;
+  background-color: $white;
+  @media only screen and (max-width: $bp-largest) {
+    padding: 8rem;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    padding: 2rem;
+  }
+}
+
+.section-reviews {
+  
+}

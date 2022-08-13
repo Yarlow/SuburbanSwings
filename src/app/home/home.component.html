@@ -1,24 +1,55 @@
 
-<div class="VideoWrapper" style="position:relative">
+<!-- <div class="VideoWrapper" style="position:relative">
   <div class="VideoDiv">
     ​<video class="MainVideo" [muted]="true" preload="auto" autobuffer autoload [autoplay]="true" loop playsinline>
       <source src="assets/Pexels-small1.mp4">
     </video>
-    <!-- <h1 class="VidTitle" style="">Suburban Swangs</h1> -->
     <img src="assets/SSOrbitronWhite.png" alt="" class="VidTitle" style="color:white;">
-    <!-- <h1 class="VidTitleH1">Suburban Swings</h1> -->
     <h2 class="VidFooter" style="">Golf Simulators On The Move</h2>
     <button class="VideoEventButton" routerLink="/Events" mat-raised-button color="accent">See Our Events</button>
   </div>
-</div>
+</div> -->
 
-<hr style="color: #0799a3; background-color: #0799a3; height: 10px; margin: 60px 0;">
+<header class="header">
 
-<div class="BelowVideo">
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Suburban Swings</span>
+      <span class="heading-primary--sub">
+        <span class="heading-primary--sub-sim">Golf simulators</span>
+        <span class="heading-primary--sub-move"> on the move</span>
+      </span>
+
+    </h1>
+
+  </div>
+  <div class="header__cta-events">
+    <a routerLink="/Events" class="btn btn--pink btn--animated">See our events</a>
+  </div>
+
+  <div class="header__cta-booking">
+    <a routerLink="/booking" class="btn btn--pink btn--animated">Book a rental</a>
+  </div>
+
+</header>
+
+<!-- <hr style="color: #0799a3; background-color: #0799a3; height: 10px; margin: 60px 0;"> -->
+
+<!-- <div class="BelowVideo"> -->
+
+
+
+<section class="section-about">
   <app-about-us></app-about-us>
+</section>
+
+<section class="section-skytrak-description">
   <app-skytrak-description></app-skytrak-description>
+</section>
 
-
+<section class="section-reviews">
+  <app-reviews></app-reviews>
+</section>
 
 <!-- <app-carousel>
 
@@ -26,4 +57,4 @@
 
   <!-- <app-event-details></app-event-details> -->
 
-</div>
+<!-- </div> -->

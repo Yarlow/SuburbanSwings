@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SSEvent } from '../../event.model';
+import { faInfo, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-events-list-item',
@@ -9,6 +10,9 @@ import { SSEvent } from '../../event.model';
 })
 export class EventsListItemComponent implements OnInit {
 
+  faInfo = faInfo;
+  faInfoCircle = faInfoCircle;
+  
   @Input() eventElement : SSEvent;
   availableSlots: number = 0
 

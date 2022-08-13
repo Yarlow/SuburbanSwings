@@ -1,0 +1,30 @@
+.reviews {
+  padding: 0 20rem;
+  padding-bottom: 10rem;
+
+  @media only screen and (max-width: $bp-largest) {
+    padding: 0 10rem;
+  }
+
+  @media only screen and (max-width: $bp-large) {
+    padding: 0 5rem;
+  }
+
+  @media only screen and (max-width: $bp-mobile) {
+    margin: 5rem 0;
+  }
+}
+
+.review {
+  background-color: $color-grey-light-2;
+  border-radius: 5px;
+  padding: 2rem;
+
+  &__name {
+    font-size: 2rem;
+  }
+
+  &__text {
+    font-size: 1.8rem;
+  }
+}

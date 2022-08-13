@@ -1,0 +1,78 @@
+.btn {
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($black, 0.2);
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active, &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($black, 0.2);
+  }
+
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: $default-font-size;
+
+    //change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: ""; /* always need to do content and display for it to show up on the page*/
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  &--white {
+    background-color: $white;
+    color: $color-grey-dark;
+
+    &::after{
+      background-color: $white;
+    }
+  }
+
+  &--pink {
+    background-color: $color-secondary-light;
+    color: $color-grey-light-1;
+
+    &::after{
+      background-color: $color-secondary-light;
+    }
+  }
+
+  &--blue {
+    background-color: $color-primary;
+    color: $white;
+
+    &::after{
+      background-color: $color-primary;
+    }
+  }
+
+  // &--animated {
+  //     animation: moveInBottom .5s ease-out .75s;
+  //     animation-fill-mode: backwards;
+  // }
+}

@@ -1,113 +1,124 @@
-<div class="bookingContainer">
-  <mat-card>
-    <p class="primary-header">Booking Information</p>
-    <p class="deal-info">Minimum space requirements: 10 feet x 16 feet x 11 feet high.</p>
-    <p class="deal-info">We will arrive 1 hour before the scheduled time to begin setting up the event. An attendant will stay during the rental to help you use the simulator.</p>
-
-    <div class="dealwrapper">
-      <p class="tertiary-header" style="border-bottom: solid 1px black; padding-bottom: 4px;">Our Deals</p>
-      <p class="tertiary-header">Indoor Golf</p>
-      <p class="deal-info">4 Hour minimum at $500. $100 per hour after.</p>
-      <p class="deal-info">Can set up any time of day, rain or shine.</p>
-    </div>
-    <div class="dealwrapper">
-      <p class="tertiary-header">Dusk Deal - for Outdoor Use</p>
-      <p class="deal-info">3 Hour minimum at $400. $150 per hour after.</p>
-      <p class="deal-info">Can only be used after sunset to maximize performance of the display screen. Lasts until 1am.</p>
-    </div>
-  </mat-card>
-  <mat-card>
-
-    <h3>Fill out this form to start booking</h3>
-    <form (submit)="onSubmitReservation(resForm)" #resForm="ngForm">
-      <mat-form-field>
-        <input
-        placeholder="Name"
-        ngModel
-        name="name"
-        type="text"
-        matInput
-        color="accent"
-        required>
-        <mat-error>Please enter your name</mat-error>
-      </mat-form-field>
-      <mat-form-field>
-        <input
-        placeholder="Email or phone"
-        ngModel
-        name="contactInfo"
-        type="text"
-        matInput
-        color="primary"
-        required>
-        <mat-error>Please enter your email</mat-error>
-      </mat-form-field>
-
-      <mat-form-field>
-        <input
-        placeholder="Address"
-        ngModel
-        name="address"
-        type="text"
-        matInput
-        color="primary"
-        required>
-        <mat-error>Please enter your Address</mat-error>
-      </mat-form-field>
-
-      <div class="cityStateZip">
-        <mat-form-field>
-          <input
-          placeholder="City"
-          ngModel
-          name="city"
-          type="text"
-          matInput
-          color="primary"
-          required>
-          <mat-error>Please enter your City</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-          placeholder="State"
-          ngModel
-          name="state"
-          type="text"
-          matInput
-          color="primary"
-          required>
-          <mat-error>Please enter your State</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input
-          placeholder="Zip Code"
-          ngModel
-          name="zipCode"
-          type="text"
-          matInput
-          color="primary"
-          required>
-          <mat-error>Please enter your Zip Code</mat-error>
-        </mat-form-field>
+<section class="section-booking">
+  <div class="booking">
+    <div class="booking__header">
+      <div class="booking__header--title u-center-text">
+        <h2 class="heading-secondary">Get started booking your event</h2>
       </div>
+    </div>
+    <div class="booking__details u-margin-bottom-medium">
+      <h3 class="heading-tertiary">Booking details</h3>
+      <div class="booking__details--info">
+        <p class="paragraph u-margin-bottom-small">Minimum space requirements: 10 feet x 16 feet x 11 feet high.</p>
+        <p class="paragraph u-margin-bottom-small">We will arrive 1 hour before the scheduled time to begin setting up the event. An attendant will stay during the rental to help you use the simulator.</p>
+      </div>
+    </div>
+    <h3 class="heading-tertiary u-margin-bottom-small">Our Deals</h3>
+    <div class="booking__deals u-margin-bottom-medium">
+      <div class="booking__deal u-margin-bottom-small">
+        <p class="booking__deal--title">Indoor Golf</p>
+        <p class="booking__deal--detail">
+          4 Hour minimum at $500. <br> $100 per additional hour<br>
+          Can set up any time of day, rain or shine.
+        </p>
+      </div>
+      <div class="booking__deal">
+        <p class="booking__deal--title">Dusk Deal - For Outdoor Use</p>
+        <p class="booking__deal--detail">
+          3 Hour minimum at $400. <br> $150 per hour after. <br>
+          Lasts until 1 A.M.
+        </p>
+      </div>
+    </div>
 
-
-
-      <div class="dateTime">
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
+    <h3 class="heading-tertiary">Fill out this form to start booking</h3>
+    <div class="booking__form">
+      <form (submit)="onSubmitReservation(resForm)" #resForm="ngForm">
+        <mat-form-field>
           <input
+          placeholder="Name"
+          ngModel
+          name="name"
+          type="text"
+          matInput
+          color="accent"
+          required>
+          <mat-error>Please enter your name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          placeholder="Email or phone"
+          ngModel
+          name="contactInfo"
+          type="text"
+          matInput
+          color="primary"
+          required>
+          <mat-error>Please enter your email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input
+          placeholder="Address"
+          ngModel
+          name="address"
+          type="text"
+          matInput
+          color="primary"
+          required>
+          <mat-error>Please enter your Address</mat-error>
+        </mat-form-field>
+
+        <div class="cityStateZip">
+          <mat-form-field>
+            <input
+            placeholder="City"
+            ngModel
+            name="city"
+            type="text"
+            matInput
+            color="primary"
+            required>
+            <mat-error>Please enter your City</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+            placeholder="State"
+            ngModel
+            name="state"
+            type="text"
+            matInput
+            color="primary"
+            required>
+            <mat-error>Please enter your State</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+            placeholder="Zip Code"
+            ngModel
+            name="zipCode"
+            type="text"
+            matInput
+            color="primary"
+            required>
+            <mat-error>Please enter your Zip Code</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="dateTime">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input
             matInput
             ngModel
             name="date"
             [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Choose an appointment length</mat-label>
-          <mat-select
+          <mat-form-field appearance="fill">
+            <mat-label>Choose an appointment length</mat-label>
+            <mat-select
             ngModel
             name="reservationLength">
             <mat-option value="3">3 Hours</mat-option>
@@ -127,11 +138,15 @@
         matInput
         color="primary">
 
-        </textarea>
-      </mat-form-field>
-
-      <button class="submitButton" mat-raised-button type="submit" color="accent">Submit</button>
+      </textarea>
+    </mat-form-field>
+      <button type="submit" class="btn btn--pink">Submit</button>
+      <!-- <button class="submitButton" mat-raised-button type="submit" color="accent">Submit</button> -->
     </form>
-  </mat-card>
 
-</div>
+  </div>
+  <!-- </mat-card> -->
+
+<!-- </div> -->
+  </div>
+</section>

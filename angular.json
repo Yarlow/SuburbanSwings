@@ -8,7 +8,11 @@
   "projects": {
     "SuburbanSwings": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+					"style": "scss"
+				}
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -29,7 +33,7 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+							"src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -119,7 +123,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+							"src/styles/styles.scss"
             ],
             "scripts": []
           }

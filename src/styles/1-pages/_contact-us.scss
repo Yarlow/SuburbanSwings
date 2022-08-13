@@ -1,0 +1,23 @@
+.section-contact-us {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: $color-grey-light-2;
+}
+
+.contact {
+  margin: auto;
+  width: 50%;
+
+  @media only screen and (max-width: $bp-mobile) {
+    width: 80%;
+  }
+
+  &__form {
+    background-color: $color-grey-light-1;
+    padding: 2.5rem;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+
+    font-size: 1.5rem;
+  }
+}

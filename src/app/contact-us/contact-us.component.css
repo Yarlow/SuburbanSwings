@@ -28,8 +28,8 @@ color: white;
 
 .submitButton {
   position: relative;
-  left:65%;
-  bottom: 0%
+  /* left:65%;
+  bottom: 0% */
 }
 
 @media screen and (max-width: 700px) {

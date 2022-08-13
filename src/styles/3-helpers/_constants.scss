@@ -1,0 +1,49 @@
+/* ========================
+CONSTANTS
+=========================*/
+
+// COLOR PALETTE
+
+// Primary Colors
+
+$color-primary: #43c0ee;
+$color-primary-dark: #237e96;
+$color-primary-light: #36ebf1;
+
+// Accenet Colors
+
+$color-secondary-light: #FF42D2;
+$color-secondary-dark: #be379e;
+
+// Base Colors
+$white: #ffffff;
+$black: #000000;
+
+$color-grey-light-1: #f7f7f7;
+$color-grey-light-2: #eee;
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+// Gradients
+
+// FONTS
+
+$default-font-size: 1.6rem;
+
+// STANDARD SIZES
+$radius: 0.125rem;
+
+// Z-LAYERS
+$layer-1: 1;
+$layer-2: 2;
+$layer-3: 3;
+$layer-4: 4;
+$layer-5: 5;
+
+// BREAKPOINTS
+$bp-huge: 87.5em; // 1400px;
+$bp-largest : 68.75em; // 1100px;
+$bp-large : 56.25em; // 900px;
+$bp-mobile: 43.75em; // 700px;
+$bp-medium: 37.5em; //600px;

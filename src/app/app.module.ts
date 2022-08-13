@@ -20,6 +20,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll'
 import { MatChipsModule } from '@angular/material/chips'
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -51,6 +52,8 @@ import { AboutUsComponent } from './home/about-us/about-us.component';
 import { AboutUsGridComponent } from './home/about-us/about-us-grid/about-us-grid.component';
 import { EventDetailsComponent } from './home/event-details/event-details.component';
 import { AdminLocationsComponent } from './users/admin/admin-locations/admin-locations.component';
+import { FooterComponent } from './footer/footer.component';
+import { ReviewsComponent } from './home/reviews/reviews.component';
 
 // import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
 // import { NgxStripeModule } from 'ngx-stripe';
@@ -87,7 +90,9 @@ import { AdminLocationsComponent } from './users/admin/admin-locations/admin-loc
     AboutUsComponent,
     AboutUsGridComponent,
     EventDetailsComponent,
-    AdminLocationsComponent
+    AdminLocationsComponent,
+    FooterComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +117,8 @@ import { AdminLocationsComponent } from './users/admin/admin-locations/admin-loc
     MatExpansionModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
     // NgxStripeModule.forRoot('pk_test_51JtfA0GnXfM47IJy8Jc0EiBvuiLDlgo3K8rSOFHBIF2OxybYsFyo5cf6vKwLvvlcrNLhadkHmPSyHJiWG4QKDtJN00O2Ru2FXn'),
     // MatInput,
   ],

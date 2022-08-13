@@ -1,0 +1,38 @@
+/* ========================
+GLOBAL
+LAYOUT AND COMMON STYLES
+=========================*/
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0;
+  /* box-sizing: border-box; moved this to the body, and then set it to inherit*/
+  box-sizing: inherit;
+}
+
+html {
+  //basically define what 1rem is, (10px)
+  font-size: 62.5%; // 1 rem = 10px;
+  // overflow: hidden;
+  // max-width: 100vw;
+  /* font-size: 10px; */
+  /* 16px is the default and most standard font-size. so we got 62.5% by doing 10/16.
+    we want 10 because it makes calculations easier later in the page.*/
+
+    @media only screen and (max-width: $bp-largest) {
+      font-size: 56.25%;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 56.25%;
+    }
+}
+
+body {
+  // background-color: #ffe;
+  box-sizing: border-box;
+  // padding: 3rem;
+
+}
