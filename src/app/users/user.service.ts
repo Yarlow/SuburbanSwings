@@ -30,20 +30,8 @@ export class UserService {
         .subscribe(responseData => {
           const token = responseData.token;
           responseMessageToReturn = responseData.message;
-          console.log(responseData);
           if (token) {
-            this.token = token;
-            const expiresInDuration = responseData.expiresIn
-            this.setAuthTimer(responseData.expiresIn)
-            this.authStatusListener.next(true);
-            const now = new Date()
-            const expirationDate = new Date( now.getTime() + expiresInDuration * 1000)
-            this.saveAuthData(token, expirationDate, responseData.userId)
-            this.isAuthenticated = true;
-            this.setUserId(responseData.userId)
-            this.getSignedInUserInfo()
-            // this.getuserInfo()
-            // this.setUser(this.getUserInfo(responseData.userId))
+            this.setToken(responseData, token);
             this._snackBar.open('Log In Successful', 'X', {
               duration: 2500
             })
@@ -56,6 +44,42 @@ export class UserService {
     })
 
       // return responseMessageToReturn
+  }
+
+  setToken (responseData, token) {
+    this.token = token;
+    const expiresInDuration = responseData.expiresIn
+    this.setAuthTimer(responseData.expiresIn)
+    this.authStatusListener.next(true);
+    const now = new Date()
+    const expirationDate = new Date( now.getTime() + expiresInDuration * 1000)
+    this.saveAuthData(token, expirationDate, responseData.userId)
+    this.isAuthenticated = true;
+    this.setUserId(responseData.userId)
+    this.getSignedInUserInfo()
+    // this.getuserInfo()
+    // this.setUser(this.getUserInfo(responseData.userId))
+    
+  }
+
+  signUp(user: { email: string, password: string }) {
+    return new Promise((resolve, reject) => {
+      this.http.post<{ message: string, token: string, expiresIn: number, userId: string }>(
+        `${environment.apiUrl}users/signup`, user
+      ).subscribe(responseData => {
+        console.log("SUCCESS SIGN UP");
+        console.log(responseData);
+        if (responseData.token) {
+          this.setToken(responseData, responseData.token)
+          this._snackBar.open('Welcome!', 'X')
+          this.getSignedInUserInfo()
+          this.router.navigate(['/']);
+        }
+        resolve(responseData);
+      }, (error)=> {
+        reject(error.error);
+      })
+    }) 
   }
 
   setAuthTimer(duration: number) {
@@ -115,18 +139,23 @@ export class UserService {
     const authInfo = this.getAuthData()
 
     if (authInfo){
-        const now = new Date();
-        const expiresIn = authInfo.expirationDate.getTime() - now.getTime();
-        if (expiresIn > 0){
-          this.userId = authInfo.userId
-          this.token = authInfo.token;
-          this.isAuthenticated = true
-          this.setAuthTimer(expiresIn / 1000) //subtracting the two times returns a milisecond
-          this.authStatusListener.next(true)
-          this.getSignedInUserInfo()
-        }
+      const now = new Date();
+      const expiresIn = authInfo.expirationDate.getTime() - now.getTime();
+      if (expiresIn > 0){
+        this.userId = authInfo.userId
+        this.token = authInfo.token;
+        this.isAuthenticated = true
+        this.setAuthTimer(expiresIn / 1000) //subtracting the two times returns a milisecond
+        this.authStatusListener.next(true)
+        this.getSignedInUserInfo()
+        return true;
+      } else {
+        this.clearAuthData();
+        return false;
+      }
     } else {
-      return
+      this.clearAuthData();
+      return false;
     }
   }
 
@@ -150,5 +179,9 @@ export class UserService {
       expirationDate: new Date (expirationDate),
       userId: userId
     }
+  }
+
+  getUserData() {
+    return this.getAuthData();
   }
 }

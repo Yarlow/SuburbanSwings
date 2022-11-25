@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd, Event } from '@angular/router';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
   user: User
   role: string = 'user'
 
-
+  // @Input() isAuthed: boolean;
 
   constructor(public activatedRoute: ActivatedRoute, private router: Router, private userService: UserService) {
     this.router.events.subscribe((event: Event) => {
@@ -63,6 +63,7 @@ export class NavbarComponent implements OnInit {
 
     this.userIsAuthenticated = this.userService.getIsAuth()
     this.authListenerSubscription = this.userService.getAuthStatusListener().subscribe(isAuthenticated => {
+      console.log("IS AUTHENTICATED?", isAuthenticated)
       this.userIsAuthenticated = isAuthenticated;
       // this.userRole = this.userService.getRole();
       // console.log(this.userRole)
@@ -85,6 +86,13 @@ export class NavbarComponent implements OnInit {
   onNav() {
     if (this.mobile){
       this.showNav = false;
+    }
+  }
+
+  changeRoute(route) {
+    console.log("try change route", route)
+    if (route === "Account") {
+      this.router.navigate(["/Account"])
     }
   }
 

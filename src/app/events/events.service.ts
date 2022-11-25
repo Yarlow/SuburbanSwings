@@ -1,5 +1,7 @@
+import { UserService } from './../users/user.service';
 import { HttpClient  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PaymentIntent } from '@stripe/stripe-js';
 import { Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SSEvent } from './event.model'
@@ -46,7 +48,7 @@ export class EventsService {
     }
   ]
 
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
 
   getEvents() : SSEvent[] {
     return this.events;
@@ -70,20 +72,24 @@ export class EventsService {
     })
   }
 
-  createTeam(players, team, eventID) {
+  createTeam(players, team, eventID, paymentIntent) {
     let body = {
       players: players,
       team: team,
-      eventID
+      eventID,
+      paymentIntent: paymentIntent
     }
 
-    return new Promise((resolve, reject) => {
-      this.http.post<{url: string, status: number}>(environment.apiUrl + "events/teamSignup", body).subscribe(responseData => {
+    return new Promise<{url: string, status: number, message : string, team: SSTeam, expireTime: Date}>((resolve, reject) => {
+      this.http.post<{url: string, status: number, message : string, team: SSTeam, expireTime: Date}>(environment.apiUrl + "events/teamSignup", body).subscribe(responseData => {
         console.log(responseData.status)
-        if (responseData.url) {
-          window.open(responseData.url);
+        if (responseData.message === 'success') {
           resolve(responseData)
         }
+        // if (responseData.url) {
+        //   window.open(responseData.url);
+        //   resolve(responseData)
+        // }
       }, error => {
         console.log(error)
         reject(error)
@@ -121,14 +127,34 @@ export class EventsService {
     eventData.append("price", event.price)
     eventData.append("eventType", event.eventType)
     eventData.append("summaryText", event.summaryText)
-    eventData.append("image", event.image, event.name)
+    // eventData.append("image", event.image, event.name)
 
-    console.log(eventData.get('image'))
-
-    this.http.post<{message: string}>(environment.apiUrl + 'events', eventData)
+    // console.log(eventData.get('image'))
+    let body = {
+      name: event.name,
+      location: event.location._id,
+      availableTimes: event.availableTimes,
+      setupAndRules: event.setupAndRules,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      price: event.price,
+      eventType: event.eventType,
+      summaryText: event.summaryText,
+      image: event.image
+    }
+    console.log(body);
+    this.http.post<{message: string}>(environment.apiUrl + 'events', body)
       .subscribe(response => {
         console.log(response.message)
       })
+  }
+  
+  createPaymentIntent(event, teamId) {
+    var userData = this.userService.getUserData()
+    return this.http.post<PaymentIntent>(
+      `${environment.apiUrl}payments/event/paymentIntent`,
+      { event, user: userData, teamId }
+    );
   }
 
 }

@@ -1,0 +1,19 @@
+<section class="section-account">
+    <div class="account-header">
+        <p class="account-header__welcome">Welcome Jamerson Jimmy</p>
+
+        <div class="account-header__tabs">
+            <div (click)="changeTab('Events')" class="account-header__tabs--item">Events</div>
+            <div (click)="changeTab('Teams')" class="account-header__tabs--item">Teams</div>
+        </div>
+    </div>
+
+    <div class="account-info">
+        <p>{{activeTab}}</p>
+    </div>
+
+    <app-user-events *ngIf="activeTab === 'Events'"></app-user-events>
+
+    <app-user-teams *ngIf="activeTab === 'Teams'"></app-user-teams>
+
+</section>

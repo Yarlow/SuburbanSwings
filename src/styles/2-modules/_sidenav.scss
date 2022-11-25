@@ -11,6 +11,61 @@
     width: 40rem;
     padding-left: 10rem;
   }
+
+  &__image {
+    position: relative;
+  }
+
+  &__account-page {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: 50;
+    background-color: $color-secondary-light;
+    border-radius: 50%;
+    box-shadow: 0 1rem 3rem rgba($black, .75);
+    height: 4.75rem;
+    width: 4.75rem;
+    transition: all .4s;
+    
+    &::before {
+      content: ""; /* always need to do content and display for it to show up on the page*/
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all .4s;
+      background-color: $color-secondary-light;
+      // transform-origin: bottom; // neat
+    }
+  
+    &:hover::before
+    // &::before 
+    {
+      transform: scaleX(1.5) scaleY(1.5) translateY(-0.1rem);
+      opacity: 0;
+    }
+    &:hover {
+      transform: translate(50%, -55%);
+    }
+
+    &--svg {
+      top: 50%;
+      bottom: 50%;
+      margin: 0;
+      padding: 0.5rem;
+      border-radius: 50%;
+      height: 4.75rem;
+      width: 4.75rem;
+      fill: $color-grey-light-3;
+    }
+  }
 }
 
 .navigation--show {
@@ -27,6 +82,7 @@
 
 
   transition: filter .4s;
+  background-color: $white;
 
   @media screen and (max-width: 700px) {
     margin-left: 0;
@@ -126,4 +182,67 @@
   box-shadow: 0 1rem 3rem rgba($black, .1);
   // height: 40rem;
   // width: 40rem;
+}
+
+.bottom-buttons {
+  font-size: 1.4rem;
+
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+
+
+  &__item {
+    position: relative;
+    // flex: 1 1 auto;
+    text-align: center;
+    flex-basis: 0;
+    flex-grow: 1;
+    // &:not(:last-child) {
+    //   margin-bottom: .5rem;
+    // }
+
+  }
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: $color-primary;
+    transform: scaleY(0);
+    transition: transform .2s,
+                height .4s cubic-bezier(1,0,0,1) .2s,
+                background-color .1s;
+
+
+    // transform-origin: bottom; // neat
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    z-index: 0;
+    transform: scaleY(1);
+    height: 100%;
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: $color-grey-light-1;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 10;
+
+    // display: flex;
+    // align-items: center;
+    // margin: auto;
+
+  }
 }

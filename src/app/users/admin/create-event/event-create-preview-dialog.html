@@ -1,5 +1,5 @@
 <mat-dialog-content>
-  <mat-card class="eventCard">
+  <!-- <mat-card class="eventCard">
     <h2 style="margin: 1rem;"></h2>
     <p class="eventHeader">
       {{eventElement.name}}
@@ -28,13 +28,84 @@
 
 
     <div class="imgContainer">
-      <!-- <img src="assets/nocterra-outside-min.jpg" alt="" style="width:100%; overflow: hidden;"> -->
       <img src="{{eventElement.image}}" alt="" style="width:100%; overflow: hidden;">
 
       <button (click)="matSnack()" mat-raised-button color="primary" class="eventSignUpButton">Sign Up</button>
     </div>
-  </mat-card>
-</mat-dialog-content>
+  </mat-card> -->
+  
+  
+  <!-- <div class="row"> -->
+    <!-- <div class="col-xl-3 col-lg-4 col-md-5"> -->
+      <div class="event__card">
+        <!-- <h2 style="margin: 1rem;"></h2> -->
+        <div class="u-center-text">
+          <h3 class="event__header">
+            {{eventElement.name}}
+          </h3>
+          
+          <!-- <h3 class="heading-tertiary">
+          </h3> -->
+        </div>
+        
+        <div class="event__location u-margin-bottom-small">
+          <p class="event__location--text">
+            At {{eventElement.location.name}}
+          </p>
+          <!-- <svg class="event__location--icon">
+            <use xlink:href="assets/sprite.svg#icon-info"></use>
+          </svg> -->
+          <!-- <button mat-icon-button class="infoIcon" color="accent" matTooltip="BAH">
+            <fa-icon [icon]="faInfo"></fa-icon>
+            
+            
+          </button> -->
+          
+        </div>
+        <div class="teamSizeandPrice" *ngIf="eventElement.setupAndRules.playersPerTeam > 1">
+          <p class="paragraph" >Teams of {{eventElement.setupAndRules.playersPerTeam}}</p>
+          <p class="paragraph" >${{eventElement.price}} per team</p>
+        </div>
+        <div class="teamSizeandPrice" *ngIf="eventElement.setupAndRules.playersPerTeam == 1">
+          <p class="paragraph">Single Player Event</p>
+          <p class="paragraph">${{eventElement.price}} per slot</p>
+        </div>
+        <p class="paragraph" *ngIf="eventElement.startDate !== eventElement.endDate">
+          {{ eventElement.startDate | date }}
+        -
+        {{ eventElement.endDate | date }}
+      </p>
+      
+      <p class="paragraph" *ngIf="eventElement.startDate === eventElement.endDate">
+        {{ eventElement.startDate | date }}
+      </p>
+      
+      <p class="paragraph">
+        Available Slots: {{availableSlots}}
+      </p>
+      
+      <p class="paragraph">
+        {{eventElement.summaryText}}
+        
+      </p>
+      
+      
+      <div class="event__img-container">
+        <!-- <img src="assets/nocterra-outside-min.jpg" alt="" style="width:100%; overflow: hidden;"> -->
+        <img src="{{eventElement.image}}" alt="Event image" class="event__img">
+        <div class="event__cta">
+          <button class="btn btn--pink" disabled >Sign Up</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- https://drive.google.com/file/d/1NPuGJ00o3JzUXISAVSnpptFdF7vFd2AD/view?usp=sharing
+      https://drive.google.com/uc?export=view&id=1YmjTtcaJpqPAEufs5a2Oc0m0-dBi8_ff -->
+      
+      <!-- https://drive.google.com/file/d/1YmjTtcaJpqPAEufs5a2Oc0m0-dBi8_ff/view?usp=sharing -->
+  </mat-dialog-content>
 <mat-dialog-actions>
   <button (click)="onYesClick()" mat-raised-button color="primary">Create Event</button>
   <button (click)="onNoClick()" mat-raised-button color="warn" >Cancel</button>

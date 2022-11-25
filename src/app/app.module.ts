@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav'
@@ -22,6 +21,7 @@ import { NgxHideOnScrollModule } from 'ngx-hide-on-scroll'
 import { MatChipsModule } from '@angular/material/chips'
 import {MatTooltipModule} from '@angular/material/tooltip';
 
+import { environment } from "../environments/environment";
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component'
 import { HomeComponent } from './home/home.component'
@@ -56,7 +56,14 @@ import { FooterComponent } from './footer/footer.component';
 import { ReviewsComponent } from './home/reviews/reviews.component';
 
 // import { StripePaymentComponent } from './league-play/signup/stripe-payment/stripe-payment.component'
-// import { NgxStripeModule } from 'ngx-stripe';
+import { NgxStripeModule } from 'ngx-stripe';
+import { StripeFormComponent } from './events/event-signup/stripe-form/stripe-form.component';
+import { AccountComponent } from './users/account/account.component';
+import { SignUpComponent } from './users/sign-up/sign-up.component';
+import { UserEventsComponent } from './users/account/user-events/user-events.component';
+import { UserTeamsComponent } from './users/account/user-teams/user-teams.component';
+import { EventCountdownComponent } from './events/event-signup/event-countdown/event-countdown.component';
+import { PhoneMaskDirective } from './directives/phone-mask.directive';
 
 @NgModule({
   declarations: [
@@ -92,7 +99,14 @@ import { ReviewsComponent } from './home/reviews/reviews.component';
     EventDetailsComponent,
     AdminLocationsComponent,
     FooterComponent,
-    ReviewsComponent
+    ReviewsComponent,
+    StripeFormComponent,
+    AccountComponent,
+    SignUpComponent,
+    UserEventsComponent,
+    UserTeamsComponent,
+    EventCountdownComponent,
+    PhoneMaskDirective
   ],
   imports: [
     BrowserModule,
@@ -118,8 +132,8 @@ import { ReviewsComponent } from './home/reviews/reviews.component';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatChipsModule,
-    MatTooltipModule
-    // NgxStripeModule.forRoot('pk_test_51JtfA0GnXfM47IJy8Jc0EiBvuiLDlgo3K8rSOFHBIF2OxybYsFyo5cf6vKwLvvlcrNLhadkHmPSyHJiWG4QKDtJN00O2Ru2FXn'),
+    MatTooltipModule,
+    NgxStripeModule.forRoot(environment.stripePubKey),
     // MatInput,
   ],
   providers: [],

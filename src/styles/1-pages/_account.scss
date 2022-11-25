@@ -1,0 +1,231 @@
+//*****************************************
+// Account Page
+//*****************************************
+.section-account {
+  // background-color: black;
+  // min-height: 100vh;
+  width: 100%;
+  background-color: $color-grey-light-2;
+}
+
+.account-header {
+  font-size: 1.4rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  &__welcome {
+    font-size: 3.5rem;
+
+  }
+
+  &__tabs {
+    background-color: $color-grey-light-1;
+    display: flex;
+    font-size: 2.5rem;
+    padding: 0.5rem 0.5rem;
+    &--item {
+      cursor: pointer;
+      padding: 1rem 1rem;
+      border-radius: 10000px;
+      
+      &:hover {
+        
+        animation: pulsate 1s infinite;
+        transform: scale(1.3, 1.3);
+      }
+    }
+
+    &--item:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0,0,0, .25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+//*****************************************
+// Events Tab
+//*****************************************
+
+.account-events {
+  
+  &__section {
+    // margin: 5rem 0;
+
+    // padding: 3rem 6rem;
+
+    padding: 8rem 6rem;
+  }
+
+  &__label {
+    font-size: 2.8rem;
+  }
+
+  &__current {
+    background-color: $color-grey-light-1;
+  }
+
+  &__upcoming {
+
+  }
+
+  &__past {
+    background-color: $color-grey-light-1;
+  }
+
+  &__no-events {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+//*****************************************
+// Loging / Signup
+//*****************************************
+.login {
+  &__card {
+    min-width: 50rem;
+    width: 50%;
+    margin: 5rem auto;
+
+    background-color: $color-grey-light-1;
+    padding: 2.5rem;
+    border-radius: 5px;
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+
+    font-size: 1.5rem;
+    
+    &--submit {
+      margin: 2rem auto;
+    }
+    &--prompt {
+      font-size: 1.8rem;
+    }
+    
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    &--row {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &-item {
+      padding: 0.5rem 2rem;
+    }
+
+    &--row-item {
+      flex-grow: 1;
+    }
+  }
+
+  &__submit--pink {
+    background-color: $color-secondary-light;
+    color: $color-grey-light-2;
+  }
+
+  &__submit--blue {
+    background-color: $color-primary;
+    color: $color-grey-light-2;
+  }
+
+  &__redirect {
+    display:inline-block;
+    transition: all 0.4s;
+    &:link,
+    &:visited,
+    &:active {
+      font-size: 1.7rem;
+      // text-decoration: none;
+      color: inherit;
+    }
+
+    &:hover {
+      transform: scale(1.4, 1.4);
+      margin-left: 1rem;
+    }
+
+    &--blue:hover {
+      background-color: $color-primary;
+    }
+
+    &--pink:hover {
+      background-color: $color-secondary-light;
+    }
+  } 
+
+  &__forgot-password {
+    margin-top: -1rem;
+    cursor: pointer;
+    width: max-content;
+
+    &:hover {
+      // background-color: $color-secondary-light;
+      // border-bottom: 1px solid black;
+    }
+
+  }
+}
+.forgot-password {
+}
+
+.password-recovery {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+  &__form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    background-color: #fff;
+    box-shadow: 0 2rem 4rem rgb(0 0 0 / 20%);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.25);
+    transition: all .5s .2s;
+    z-index: 10;
+    font-size: 2rem;
+  }
+
+  &-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &-active &__form {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+  }
+}

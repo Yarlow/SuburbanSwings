@@ -21,34 +21,46 @@
     </div>
 </div> -->
 <div class="navigation" [ngClass]="{'navigation--show' : showNav && mobile }">
-  <img style="width: 100%" src="assets/natlogo-min.png" alt="">
+  <div class="navigation__image">
+    <img style="width: 100%" src="assets/natlogo-min.png" alt="">
+    <div *ngIf="userIsAuthenticated && (!mobile || showNav)" class="navigation__account-page">
+      <svg class="navigation__account-page--svg"  (click)="changeRoute('Account')" >
+        <use xlink:href="assets/sprite.svg#icon-user"></use>
+      </svg>
+
+    </div>
+    
+    <!-- <div *ngIf="userIsAuthenticated" class="navigation__account-page"><a routerLink="/Account" (click)="onNav()" >Acct</a></div> -->
+  </div>
   
   <ul class="side-nav">
     <li class="side-nav__item" routerLinkActive="side-nav__item--active" [routerLinkActiveOptions]="{exact: true}"><a routerLink="/" (click)="onNav()" class="side-nav__link">Home</a></li>
-    <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/booking" (click)="onNav()" class="side-nav__link">Booking</a></li>
+    <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/Booking" (click)="onNav()" class="side-nav__link">Booking</a></li>
     <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/Events" (click)="onNav()" class="side-nav__link">Events</a></li>
     <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/ContactUs" (click)="onNav()" class="side-nav__link">Contact</a></li>
     <li class="side-nav__item" routerLinkActive="side-nav__item--active"><a routerLink="/FAQ" (click)="onNav()" class="side-nav__link">FAQ</a></li>
   </ul>
+
+  
+  <div class="bottom-buttons">
+    <!-- <a routerLink="/login" class="bottom-buttons__item">Login</a>
+    <a routerLink="/login" class="bottom-buttons__item">Login</a> -->
+    <!-- <ul class="side-nav"> -->
+      <!-- <div *ngIf="!userIsAuthenticated" class="bottom-buttons__item"><a routerLink="/Login" (click)="onNav()" class="bottom-buttons__link">Login</a></div>
+      <div *ngIf="!userIsAuthenticated" class="bottom-buttons__item"><a routerLink="/SignUp" (click)="onNav()" class="bottom-buttons__link">Sign Up</a></div>
+      <div *ngIf="userIsAuthenticated" class="bottom-buttons__item"><a routerLink="/" (click)="onLogout()" class="bottom-buttons__link">Logout</a></div> -->
+      <!-- </ul> -->
+    </div>
 </div>
 <!-- <fa-icon *ngIf="mobile" (click)="showNav = !showNav" class="nav-button" style="" [icon]="faBars"></fa-icon> -->
 <svg class="nav-button" *ngIf="mobile" (click)="showNav = !showNav" >
   <use xlink:href="assets/sprite.svg#icon-menu"></use>
 </svg>
 <div class="content" [ngClass]="{'content--hide' : showNav && mobile}">
-  <!-- <div class="heading" ngxHideOnScroll [propertyUsedToHide]="'top'" [valueWhenHidden]="'-80px'" [valueWhenShown]="'0px'">
-    <p>{{ toolbarText }}
-      <button *ngIf="userIsAuthenticated" (click)="onLogout()">Logout</button>
-      <a routerLink="/admin"><button *ngIf="role === 'admin'">Admin page</button></a>
 
-    </p>
-  </div> -->
   <div class="info">
     <router-outlet></router-outlet>
   </div>
-  <!-- <div>
-    <app-footer></app-footer>
-  </div> -->
-  <!-- <div style="margin-top: auto;"></div> -->
+
 
 </div>

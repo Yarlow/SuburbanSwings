@@ -87,10 +87,11 @@ export class CreateEventComponent implements OnInit {
       'eventPrice': new FormControl(null, {validators: [Validators.required]}),
       'playersPerTeam': new FormControl(null, {validators: [Validators.required]}),
       'holesPerRound': new FormControl(null, {validators: [Validators.required]}),
-      'image': new FormControl(null, {
-        validators: [Validators.required],
-        asyncValidators: [mimeType]
-      }),
+      // 'image': new FormControl(null, {
+      //   validators: [Validators.required],
+      //   asyncValidators: [mimeType]
+      // }),
+      'imageLink' : new FormControl(null, {validators: [Validators.required]}),
       'summaryText': new FormControl(null, {validators: [Validators.required]})
     })
 
@@ -149,6 +150,7 @@ export class CreateEventComponent implements OnInit {
       playersPerTeam: this.form.value.playersPerTeam,
       maxTeams
     }
+    console.log(this.form.value.sundayTimes)
     let availableTimes = {
       Sunday: this.showSunday ? this.form.value.sundayTimes : [],
       Monday: this.showMonday ? this.form.value.mondayTimes : [],
@@ -165,12 +167,11 @@ export class CreateEventComponent implements OnInit {
       endDate: this.form.value.endDate,
       price: this.form.value.eventPrice,
       summaryText: this.form.value.summaryText,
-      image: this.form.value.image,
+      image: this.form.value.imageLink,
       availableTimes,
-      setupAndRules
+      setupAndRules,
+      eventType: this.form.value.eventType
     }
-    console.log(ssEvent)
-
 
     const dialogRef = this.dialog.open(EventCreatePreviewDialog , {
       width: '400px',
@@ -181,11 +182,13 @@ export class CreateEventComponent implements OnInit {
           location: this.form.value.selectedLocation,
           availableTimes,
           setupAndRules,
-          image: this.imagePreview,
+          // image: this.imagePreview,
+          image: this.form.value.imageLink,
           startDate: this.form.value.startDate,
           endDate: this.form.value.endDate,
           price: this.form.value.eventPrice,
-          summaryText: this.form.value.summaryText
+          summaryText: this.form.value.summaryText,
+          eventType: this.form.value.eventType
         }
       }
     })

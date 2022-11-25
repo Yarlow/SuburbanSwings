@@ -1,6 +1,8 @@
-<div class="formWrapper" >
+<app-event-countdown *ngIf="paymentStep" [expireTime]="expireTime"></app-event-countdown>
+
+<div class="event__form">
   <mat-spinner *ngIf="isLoading" color="accent"></mat-spinner>
-  <mat-card *ngIf="!isLoading">
+  <div *ngIf="!isLoading">
     <h2>{{eventName}} Signup Form:</h2>
     <form (submit)="onConfirm()" [formGroup]="form" style="display: flex; flex-direction: column;">
       <mat-form-field>
@@ -12,8 +14,8 @@
         <div class="col-sm-5 col-md-5">
           <mat-form-field>
             <mat-label>Desired Day</mat-label>
-            <mat-select formControlName="selectedDay">
-              <mat-option *ngFor="let availableDay of availableDays" [value]="availableDay">{{availableDay}}</mat-option>
+            <mat-select formControlName="selectedDay" panelClass="selectClass">
+              <mat-option *ngFor="let availableDay of availableDays" [value]="availableDay" panelWidth="100px">{{availableDay}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
@@ -40,7 +42,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput formControlName="tMem1Phone" placeholder="Phone Number" type="text">
+            <input matInput formControlName="tMem1Phone" appPhoneMask placeholder="Phone Number" type="text">
           </mat-form-field>
         </div>
 
@@ -51,20 +53,40 @@
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput formControlName="tMem2Email" placeholder="Email" type="text">
+            <input matInput formControlName="tMem2Email" placeholder="Email" type="email">
           </mat-form-field>
 
           <mat-form-field>
-            <input matInput formControlName="tMem2Phone" placeholder="Phone Number" type="text">
+            <input matInput formControlName="tMem2Phone" appPhoneMask placeholder="Phone Number" type="text">
           </mat-form-field>
         </div>
       </div>
 
-      <button mat-button color="accent" type="submit">Confirm</button>
+      <!-- <button mat-button color="accent" type="submit">Confirm</button> -->
 
     </form>
+    <mat-spinner *ngIf="paymentIntentLoading" color="accent"></mat-spinner>
+    <div *ngIf="!paymentIntentLoading" class="event__form--stripe">
+      <ng-container *ngIf="elementsOptions?.clientSecret as clientSecret">
+          <ngx-stripe-payment 
+            (change)="formChange($event)"
+            [clientSecret]="clientSecret">
+          </ngx-stripe-payment>
+          <!-- formGroup="stripeForm"  -->
+      </ng-container>
+      <div class="event__form--submit u-center-text">
+          <!-- <button class="btn btn--blue" (click)="onSignUp()">Sign Up</button> -->
+          <button [ngClass]="teamStep ? 'btn btn--blue' : 'btn btn--disabled'" [disabled]="!teamStep"  *ngIf="teamStep" (click)="onSignUp()">Sign Up</button>
+          <!-- [ngClass]="{'navigation--show' : showNav && mobile }" -->
+          
+          <button class="btn btn--pink" *ngIf="paymentStep" (click)="pay()">Pay Up</button>
 
-  </mat-card>
+      </div>
+  
+    </div>
+  </div>
+
+  <!-- <app-stripe-form></app-stripe-form> -->
 
   <!-- <app-stripe-payment></app-stripe-payment> -->
   <div class="disclaimer"  *ngIf="!isLoading">

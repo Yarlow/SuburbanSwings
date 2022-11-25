@@ -1,0 +1,9 @@
+<div [formGroup]="paymentElementForm">
+    <ng-container *ngIf="elementsOptions?.clientSecret as clientSecret">
+        <ngx-stripe-payment [clientSecret]="clientSecret">
+        </ngx-stripe-payment>
+    </ng-container>
+    <div class="event__form--submit u-center-text">
+        <button class="btn btn--blue" (click)="pay()">Sign Up</button>
+    </div>
+</div>

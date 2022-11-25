@@ -1,25 +1,43 @@
-<div class="container">
-  <mat-card class="loginForm">
-  <form (submit)="onLogin()" [formGroup]="loginForm">
-    <mat-form-field>
+<div class="login__card">
+  <p class="login__card--prompt">Log In</p>
+  <form (submit)="onLogin()" [formGroup]="loginForm" class="login__form">
+    <mat-form-field class="login__form-item">
       <input type="text"
       matInput
       formControlName="email"
-      placeholder="email">
+      placeholder="Email">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="login__form-item">
       <input type="password"
       matInput
       formControlName="password"
-      placeholder="password" />
+      placeholder="Password" />
       <mat-error *ngIf="loginAttemptMessage">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
+    <a class="login__forgot-password" (click)="recoveringPassword = !recoveringPassword">Forgot Password?</a>
     <div class="bottom">
-      <button mat-raised-button type="submit" color="primary">Login</button>
-      <p>Don't have an account? <a routerLink="/register">Sign Up</a></p>
-
+      <button mat-raised-button type="submit" class="login__submit--blue">Login</button>
+      <p>Don't have an account? <a routerLink="/SignUp" class="login__redirect">Sign Up</a></p>
+      
     </div>
   </form>
-</mat-card>
+</div>
+
+<div class="password-recovery" [ngClass]="{'password-recovery-active' : recoveringPassword === true}">
+  <!-- <div class="password-recovery__form"> -->
+    <form (submit)="onRecoverPassword()" [formGroup]="recoveryForm" class="password-recovery__form">
+      <p>Please enter the email associated with your account</p>
+      <mat-form-field class="">
+        <input type="text"
+        matInput
+        formControlName="recoveryEmail"
+        placeholder="Email">
+      </mat-form-field>
+
+      <button>Send</button>
+      <button (click)="recoveringPassword = false" type="button">Cancel</button>
+    </form>
+
+  <!-- </div> -->
 </div>

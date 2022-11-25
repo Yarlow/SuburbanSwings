@@ -1,0 +1,43 @@
+<div class="login__card">
+    <p class="login__card--prompt">Sign Up</p>
+    <form (submit)="onSignUp()" [formGroup]="signUpForm" class="login__form">
+      <div class="login__form--row">
+        <mat-form-field class="login__form--row-item login__form-item">
+          <input type="text"
+          matInput
+          formControlName="email"
+          placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field class="login__form--row-item login__form-item">
+          <input type="text"
+          matInput
+          formControlName="email"
+          placeholder="Last Name">
+        </mat-form-field>  
+      </div>
+      <mat-form-field class="login__form-item">
+        <input type="text"
+        matInput
+        formControlName="email"
+        placeholder="Email">
+      </mat-form-field>
+  
+      <mat-form-field class="login__form-item">
+        <input type="password"
+        matInput
+        formControlName="password"
+        placeholder="Password" />
+      </mat-form-field>
+      <mat-form-field class="login__form-item">
+        <input type="password"
+        matInput
+        formControlName="confirmPassword"
+        placeholder="Confirm Password" />
+      </mat-form-field>
+      <div class="bottom">
+        <button mat-raised-button type="submit" class="login__submit--pink">Sign Up</button>
+        <p>Already have an account? <a routerLink="/Login" class="login__redirect">Login</a></p>
+  
+      </div>
+    </form>
+  </div>

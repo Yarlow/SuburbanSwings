@@ -8,7 +8,7 @@ import { UserService } from './users/user.service';
 })
 
 export class AppComponent {
-
+  isAuthenticated: boolean = false;
   constructor(private userService: UserService) {}
 
   ngOnInit() {

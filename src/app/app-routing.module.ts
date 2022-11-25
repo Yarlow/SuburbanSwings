@@ -1,3 +1,5 @@
+import { AccountComponent } from './users/account/account.component';
+import { SignUpComponent } from './users/sign-up/sign-up.component';
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from "@angular/router"
 
@@ -41,7 +43,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'booking',
+    path: 'Booking',
     component: BookingComponent,
     data: {
       headerText: 'Book an Appointment'
@@ -103,10 +105,17 @@ const routes: Routes = [
     }
   },
   {
-    path: 'login',
+    path: 'Login',
     component: LoginComponent,
     data: {
       headerText: 'Sign In'
+    }
+  },
+  {
+    path: 'SignUp',
+    component: SignUpComponent,
+    data: {
+      headerText: 'Sign Up'
     }
   },
   {
@@ -131,6 +140,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       headerText: 'Edit Event'
+    }
+  }, 
+  {
+    path: 'Account',
+    component: AccountComponent,
+    canActivate: [AuthGuard],
+    data: {
+      headerText: 'My Account'
     }
   }
 ];
