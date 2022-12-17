@@ -1,0 +1,40 @@
+<div class="event__info--popup" [ngClass]="{'event__info--popup-show' : showInfo, 'event__info--popup-hide' : !showInfo }">
+    <div class="event__info--card" [ngClass]="{'event__info--card-show' : showInfo, 'event__info--card-hide' : !showInfo }">
+        <a class="event__info--close-card" (click)="closePopup()">×</a>
+        <div class="u-center-text">
+            <p class="event__info--name">
+                {{ eventElement.name }}
+            </p>
+        </div>
+        <div class="event__info--location">
+            <p class="event__info--location-header">
+                Location
+            </p>
+            <p class="event__info--location-name">
+                name: {{ eventElement.location.name }}
+            </p>
+            <p class="event__info--location-address">
+                address: {{ eventElement.location.address }}
+            </p>
+        </div>
+        <div class="event__info--dates">
+            <p class="event__info--dates-season" *ngIf="eventElement.eventType === 'Season'">
+                This event will begin on {{ eventElement.startDate | date }} and 
+                end on {{ eventElement.endDate | date }}. Players will play weekly (depending on
+                holidays) on the day and time they select while signing up.
+            </p>
+            <p class="event__info--dates-season" *ngIf="eventElement.eventType === 'Tournament'">
+                This event will be held at on {{ eventElement.startDate | date }}. 
+                Players will play a round of golf on our simulator
+                on the day and time they select while signing up.
+            </p>
+        </div>
+
+        <div class="event__info--summary">
+            <p class="event__info--summary-header">
+                Event description
+            </p>
+            <p class="event__info--summary-text">{{ eventElement.summaryText }}</p>
+        </div>
+    </div>
+</div>

@@ -3,9 +3,18 @@
   <!-- <div class="col-xl-3 col-lg-4 col-md-5"> -->
     <div class="event__card">
       <!-- <h2 style="margin: 1rem;"></h2> -->
+      <div class="event__info">
+        <!-- <button class="event__info--button"> -->
+          <svg class="event__info--svg" (click)="openInformationPopup()">
+            <use xlink:href="assets/sprite.svg#icon-information2"></use>
+          </svg>
+          <!-- <fa-icon class="event__info--icon" [icon]="faInfo"></fa-icon> -->
+          <!-- </button> -->
+      </div>
+      
       <div class="u-center-text">
         <h3 class="event__header">
-          {{eventElement.name}}
+          {{eventElement.name}} 
         </h3>
 
         <!-- <h3 class="heading-tertiary">
@@ -48,10 +57,10 @@
         Available Slots: {{availableSlots}}
       </p>
 
-      <p class="paragraph">
+      <!-- <p class="paragraph">
         {{eventElement.summaryText}}
 
-      </p>
+      </p> -->
 
 
       <div class="event__img-container">
@@ -62,10 +71,6 @@
         </div>
       </div>
     </div>
-
-  <!-- </div> -->
-<!-- </div> -->
-<!-- https://drive.google.com/file/d/1NPuGJ00o3JzUXISAVSnpptFdF7vFd2AD/view?usp=sharing
-https://drive.google.com/uc?export=view&id=1YmjTtcaJpqPAEufs5a2Oc0m0-dBi8_ff -->
-
-<!-- https://drive.google.com/file/d/1YmjTtcaJpqPAEufs5a2Oc0m0-dBi8_ff/view?usp=sharing -->
+    <div [ngClass]="{'event__info--show' : showInfo, 'event__info--hide' : !showInfo }">
+      <app-events-list-item-info (closePopupEvent)="showInfo = false" [eventElement]="eventElement" [showInfo]="showInfo" ></app-events-list-item-info>
+    </div>

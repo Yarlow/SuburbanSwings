@@ -13,8 +13,158 @@
     padding: 2.5rem;
     border-radius: 5px;
     box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 15%);
+    position: relative;
 
     // font-size: 1.5rem;
+  }
+
+  &__info {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    z-index: 50;
+    background-color: $color-secondary-light;
+    border-radius: 50%;
+    box-shadow: 0 .25rem 3rem rgba($black, .75);
+    height: 4.75rem;
+    width: 4.75rem;
+    transition: all .4s;
+
+    &::before {
+      content: ""; /* always need to do content and display for it to show up on the page*/
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all .4s;
+      background-color: $color-secondary-light;
+      // transform-origin: bottom; // neat
+    }
+    &:hover::before {
+      transform: scaleX(1.5) scaleY(1.5) translateY(-0.1rem);
+      opacity: 0;
+    }
+    &:hover {
+      transform: translate(50%, -55%);
+    }
+    // position: absolute;
+    // top: -2.375rem;
+    // right: -2.375rem;
+    &--svg {
+      top: 50%;
+      bottom: 50%;
+      height: 4.75rem;
+      width: 4.75rem;
+      fill: $color-grey-light-3;
+      background-color: $color-secondary-light;
+      border-radius: 100rem;
+      
+      
+    }
+
+    &--hide {
+      opacity: 0;
+    }
+
+    &--show {
+      opacity: 1;
+    }
+
+    &--popup {
+      opacity: 0;
+      z-index: 5000; 
+      width: 100vw; 
+      height: 100vh; 
+      position: fixed; 
+      left: 0; 
+      top: 0; 
+      background-color: rgba(0, 0, 0, 0.842);
+      overflow: hidden;
+      transition: all .3s;
+
+      &-show {
+        opacity: 1;
+      }
+      
+    }
+
+    &--close-card {
+      color: #777;
+      cursor: pointer;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      line-height: 1;
+
+      &:hover {
+        color: $color-secondary-light;
+      }
+    }
+
+    &--card {
+      position: absolute;
+      top:50%;
+      left: 50%;
+      width: 75%;
+      height: 80%;
+      background-color: #fff;
+      transform: translate(-50%, -50%) scale(.25);
+      box-shadow: 0 2rem 4rem rgb(0 0 0 / 20%);
+      padding: 1.5rem 3rem;
+      overflow-x: hidden;
+      overflow-y: auto;
+      transition: all .3s;
+      border-radius: 5px;
+
+      &-show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+    }
+
+    &--name {
+      font-size: 5rem;
+    }
+
+    &--location-header {
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+    &--location-name {
+      font-size: 2rem;
+    }
+    
+    
+    &--location-address {
+      font-size: 2rem;
+    }
+
+    &--dates{
+      margin-top: 1.5rem;
+    }
+
+    &--dates-season {
+      font-size: 2rem;
+    }
+
+    &--summary-header {
+      font-size: 3rem;
+      margin-top: 2rem;
+    }
+
+    &--summary-text {
+      font-size: 2rem;
+    }
   }
 
   &__header {

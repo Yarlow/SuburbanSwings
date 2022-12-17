@@ -64,6 +64,7 @@ import { UserEventsComponent } from './users/account/user-events/user-events.com
 import { UserTeamsComponent } from './users/account/user-teams/user-teams.component';
 import { EventCountdownComponent } from './events/event-signup/event-countdown/event-countdown.component';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
+import { EventsListItemInfoComponent } from './events/events-list/events-list-item/events-list-item-info/events-list-item-info.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +107,8 @@ import { PhoneMaskDirective } from './directives/phone-mask.directive';
     UserEventsComponent,
     UserTeamsComponent,
     EventCountdownComponent,
-    PhoneMaskDirective
+    PhoneMaskDirective,
+    EventsListItemInfoComponent
   ],
   imports: [
     BrowserModule,

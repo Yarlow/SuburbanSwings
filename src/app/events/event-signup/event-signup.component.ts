@@ -240,9 +240,11 @@ export class EventSignupComponent implements OnInit {
     this.form.get('tMem1Name').disable();
     this.form.get('tMem1Email').disable();
     this.form.get('tMem1Phone').disable();
-    this.form.get('tMem2Name').disable();
-    this.form.get('tMem2Email').disable();
-    this.form.get('tMem2Phone').disable();
+    if (this.form.get('tMem2Name')) {
+      this.form.get('tMem2Name').disable();
+      this.form.get('tMem2Email').disable();
+      this.form.get('tMem2Phone').disable();
+    }
     this.form.get('selectedDay').disable();
     this.form.get('selectedTime').disable();
 

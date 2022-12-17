@@ -7,6 +7,7 @@ import { mimeType } from "./mime-type.validator";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SSEvent } from 'src/app/events/event.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 export interface EventPreviewDialogData {
   choice: string;
@@ -25,6 +26,10 @@ export class CreateEventComponent implements OnInit {
   defaultEndDate: Date = null
   eventTypes = ['Tournament', 'Season']
   imagePreview: string;
+  mode: string;
+  isLoading: boolean = false;
+  eventId: string;
+  currentEvent: SSEvent;
   // locations = ['Nocterra', 'HeartState']
 
   showSunday = false;
@@ -68,41 +73,116 @@ export class CreateEventComponent implements OnInit {
 
   locations: SSLocation[] = []
 
-  constructor(private eventsService: EventsService, private locationsService: LocationService,  public dialog: MatDialog) { }
+  constructor(
+    private eventsService: EventsService, 
+    private locationsService: LocationService,  
+    public dialog: MatDialog, 
+    public route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
-    this.form = new FormGroup({
-      'eventName': new FormControl(null, {validators: [Validators.required]}),
-      'selectedLocation' : new FormControl(null, {validators: [Validators.required]}),
-      'startDate': new FormControl(this.defaultStartDate, {validators: [Validators.required]}),
-      'endDate': new FormControl(this.defaultEndDate, {validators: [Validators.required]}),
-      'eventType': new FormControl(null, {validators: [Validators.required]}),
-      'sundayTimes': new FormControl([], {}),
-      'mondayTimes': new FormControl([], {}),
-      'tuesdayTimes': new FormControl([], {}),
-      'wednesdayTimes': new FormControl([], {}),
-      'thursdayTimes': new FormControl([], {}),
-      'fridayTimes': new FormControl([], {}),
-      'saturdayTimes': new FormControl([], {}),
-      'eventPrice': new FormControl(null, {validators: [Validators.required]}),
-      'playersPerTeam': new FormControl(null, {validators: [Validators.required]}),
-      'holesPerRound': new FormControl(null, {validators: [Validators.required]}),
-      // 'image': new FormControl(null, {
-      //   validators: [Validators.required],
-      //   asyncValidators: [mimeType]
-      // }),
-      'imageLink' : new FormControl(null, {validators: [Validators.required]}),
-      'summaryText': new FormControl(null, {validators: [Validators.required]})
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.form = new FormGroup({
+        'eventName': new FormControl(null, {validators: [Validators.required]}),
+        'selectedLocation' : new FormControl(null, {validators: [Validators.required]}),
+        'startDate': new FormControl(this.defaultStartDate, {validators: [Validators.required]}),
+        'endDate': new FormControl(this.defaultEndDate, {validators: [Validators.required]}),
+        'eventType': new FormControl(null, {validators: [Validators.required]}),
+        'sundayTimes': new FormControl([], {}),
+        'mondayTimes': new FormControl([], {}),
+        'tuesdayTimes': new FormControl([], {}),
+        'wednesdayTimes': new FormControl([], {}),
+        'thursdayTimes': new FormControl([], {}),
+        'fridayTimes': new FormControl([], {}),
+        'saturdayTimes': new FormControl([], {}),
+        'eventPrice': new FormControl(null, {validators: [Validators.required]}),
+        'playersPerTeam': new FormControl(null, {validators: [Validators.required]}),
+        'holesPerRound': new FormControl(null, {validators: [Validators.required]}),
+        // 'image': new FormControl(null, {
+        //   validators: [Validators.required],
+        //   asyncValidators: [mimeType]
+        // }),
+        'imageLink' : new FormControl(null, {validators: [Validators.required]}),
+        'summaryText': new FormControl(null, {validators: [Validators.required]})
+      })
+      
+      if (paramMap.has('eventID')) {
+        this.mode = 'edit'
+        this.eventId = paramMap.get('eventID')
+        this.isLoading = true;
+        this.eventsService.getEventById(this.eventId).then(eventData => {
+          this.locationsService.getLocations().subscribe(response => {
+            this.locations = response.locations;
+            this.isLoading = false;
+            console.log(this.locations)
+            console.log(eventData);
+            this.currentEvent = eventData
+            console.log(this.currentEvent.location);
+            this.form.patchValue({
+              'eventName': this.currentEvent.name,
+              'selectedLocation' : this.currentEvent.location,
+              'startDate': this.currentEvent.startDate,
+              'endDate': this.currentEvent.endDate,
+              'eventType': this.currentEvent.eventType,
+              'sundayTimes': this.currentEvent.availableTimes.Sunday,
+              'mondayTimes': this.currentEvent.availableTimes.Monday,
+              'tuesdayTimes': this.currentEvent.availableTimes.Tuesday,
+              'wednesdayTimes': this.currentEvent.availableTimes.Wednesday,
+              'thursdayTimes': this.currentEvent.availableTimes.Thursday,
+              'fridayTimes': this.currentEvent.availableTimes.Friday,
+              'saturdayTimes': this.currentEvent.availableTimes.Saturday,
+              'eventPrice': this.currentEvent.price,
+              'playersPerTeam': this.currentEvent.setupAndRules.playersPerTeam,
+              'holesPerRound': this.currentEvent.setupAndRules.holesPerRound,
+              // 'image': 
+              //   validators: [Validators.required],
+              //   asyncValidators: [mimeType]
+              // }),
+              'imageLink' : this.currentEvent.image,
+              'summaryText': this.currentEvent.summaryText
+            })
+            if (this.currentEvent.availableTimes.Sunday.length > 0) {
+              this.showSunday = true;
+            }
+            if (this.currentEvent.availableTimes.Monday.length > 0) {
+              this.showMonday = true;
+            }
+            if (this.currentEvent.availableTimes.Tuesday.length > 0) {
+              this.showTuesday = true;
+            }
+            if (this.currentEvent.availableTimes.Wednesday.length > 0) {
+              this.showWednesday = true;
+            }
+            if (this.currentEvent.availableTimes.Thursday.length > 0) {
+              this.showThursday = true;
+            }
+            if (this.currentEvent.availableTimes.Friday.length > 0) {
+              this.showFriday = true;
+            }
+            if (this.currentEvent.availableTimes.Saturday.length > 0) {
+              this.showSaturday = true;
+            }
+          })
+        })
+
+      } else {
+        this.isLoading = true;
+        this.locationsService.getLocations().subscribe(response => {
+          this.isLoading = false;
+          this.locations = response.locations;
+    
+  
+        })
+        this.mode = 'create'
+      }
     })
 
-    this.locationsService.getLocations().subscribe(response => {
-      this.locations = response.locations;
+  }
 
-      console.log(this.locations)
-
-
-    })
-
+  compare(c1: SSLocation, c2: SSLocation) {
+    return c1 && c2 && c1._id === c2._id
   }
 
   onImagePicked(event: Event) {
@@ -161,6 +241,7 @@ export class CreateEventComponent implements OnInit {
       Saturday: this.showSaturday ? this.form.value.saturdayTimes : []
     }
     let ssEvent = {
+      _id: this.eventId || "",
       name: this.form.value.eventName,
       location: this.form.value.selectedLocation,
       startDate: this.form.value.startDate,
@@ -172,6 +253,8 @@ export class CreateEventComponent implements OnInit {
       setupAndRules,
       eventType: this.form.value.eventType
     }
+
+    console.log(ssEvent);
 
     const dialogRef = this.dialog.open(EventCreatePreviewDialog , {
       width: '400px',
@@ -195,14 +278,37 @@ export class CreateEventComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.choice === "yes"){
-        this.createEvent(ssEvent)
+        if (this.mode === 'create') {
+          this.createEvent(ssEvent)
+        } else if (this.mode === 'edit') {
+          this.editEvent(ssEvent);
+        }
       }
     })
     // this.eventsService.createEvent(ssEvent)
   }
 
   createEvent(ssEvent) {
-    this.eventsService.createEvent(ssEvent);
+    this.isLoading = true;
+    this.eventsService.createEvent(ssEvent).then(message => {
+      this._snackBar.open('Successfully created event', 'X', {
+        duration: 5000
+      })
+      this.router.navigate(['admin'])
+    }).catch(error => {
+
+    });
+  }
+
+  editEvent(ssEvent) {
+    this.eventsService.editEvent(ssEvent).then(message => {
+      this._snackBar.open('Successfully updated event', 'X', {
+        duration: 5000
+      })
+      this.router.navigate(['admin'])
+    }).catch(error => {
+
+    });
   }
 
 }

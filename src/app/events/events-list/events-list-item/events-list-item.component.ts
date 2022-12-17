@@ -15,10 +15,12 @@ export class EventsListItemComponent implements OnInit {
   
   @Input() eventElement : SSEvent;
   availableSlots: number = 0
+  showInfo: boolean = false;
 
   constructor( private router: Router ) { }
 
   ngOnInit(): void {
+    this.showInfo = false;
     for (let day of Object.keys(this.eventElement.availableTimes)) {
       console.log(this.eventElement.availableTimes[day].length)
       this.availableSlots += this.eventElement.availableTimes[day].length
@@ -27,6 +29,10 @@ export class EventsListItemComponent implements OnInit {
 
   onGoToSignup() {
     this.router.navigate(['Events/signup', this.eventElement._id])
+  }
+
+  openInformationPopup() {
+    this.showInfo = !this.showInfo;
   }
 
 }

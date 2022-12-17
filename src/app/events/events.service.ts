@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
 import { SSEvent } from './event.model'
 import { SSLocation } from './location.model'
 import { SSTeam } from './team.model';
+import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,7 +51,7 @@ export class EventsService {
     }
   ]
 
-  constructor(private http: HttpClient, private userService: UserService) { }
+  constructor(private http: HttpClient, private userService: UserService, private router: Router, private _snackBar: MatSnackBar) { }
 
   getEvents() : SSEvent[] {
     return this.events;
@@ -65,6 +68,16 @@ export class EventsService {
   getEventInfo(eventID): Promise<SSEvent> {
     return new Promise((resolve, reject) => {
       this.http.get<{event: SSEvent}>(environment.apiUrl + "events/findById/" + eventID).subscribe(responseData => {
+        if (responseData) {
+          resolve(responseData.event)
+        }
+      })
+    })
+  }
+
+  getEventById(eventID): Promise<SSEvent> {
+    return new Promise((resolve, reject) => {
+      this.http.get<{event: SSEvent}>(environment.apiUrl + "events/admin/" + eventID).subscribe(responseData => {
         if (responseData) {
           resolve(responseData.event)
         }
@@ -142,11 +155,62 @@ export class EventsService {
       summaryText: event.summaryText,
       image: event.image
     }
-    console.log(body);
-    this.http.post<{message: string}>(environment.apiUrl + 'events', body)
-      .subscribe(response => {
-        console.log(response.message)
-      })
+    return new Promise((resolve, reject) => {
+      this.http.post<{message: string, error: string}>(environment.apiUrl + 'events', body)
+        .subscribe(response => {
+          if (!response.error) {
+            resolve(response);
+          } else {
+            reject(response.error);
+          }
+          // this._snackBar.open('Successfully created event', 'X', {
+          //   duration: 5000
+          // })
+          // this.router.navigate(['admin'])
+        })
+
+    })
+  }
+
+  editEvent(event) {
+    // console.log(event.name)
+    // let name:string = event.name
+    let eventData = new FormData();
+    eventData.append("name", event.name)
+    eventData.append("location", event.location._id)
+    eventData.append("availableTimes", event.availableTimes)
+    eventData.append("setupAndRules", event.setupAndRules)
+    eventData.append("startDate", event.startDate)
+    eventData.append("endDate", event.endDate)
+    eventData.append("price", event.price)
+    eventData.append("eventType", event.eventType)
+    eventData.append("summaryText", event.summaryText)
+    // eventData.append("image", event.image, event.name)
+
+    // console.log(eventData.get('image'))
+    let body = {
+      _id: event._id,
+      name: event.name,
+      location: event.location._id,
+      availableTimes: event.availableTimes,
+      setupAndRules: event.setupAndRules,
+      startDate: event.startDate,
+      endDate: event.endDate,
+      price: event.price,
+      eventType: event.eventType,
+      summaryText: event.summaryText,
+      image: event.image
+    }
+    return new Promise ((resolve, reject) => {
+      this.http.patch<{message: string, error: string}>(environment.apiUrl + 'events', body)
+        .subscribe(response => {
+          if (!response.error) {
+            resolve(response);
+          } else {
+            reject(response.error);
+          }
+        })
+    } )
   }
   
   createPaymentIntent(event, teamId) {

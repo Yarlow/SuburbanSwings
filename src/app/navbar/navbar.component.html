@@ -1,25 +1,3 @@
-
-
-<!-- <div class="sidebar" *ngIf="showNav || !mobile">
-  <fa-icon [icon]="faTimes"  style="margin: 0; position: absolute; top: 5px; right: 5px; color:#b6e0e2; margin: -5px; padding:17px;" size="2x"  *ngIf="mobile" (click)="showNav = !showNav"></fa-icon>
-  <a routerLink="/" style="text-decoration:none">
-    <img style="width: 100%" src="assets/natlogo-min.png" alt="">
-    <div style="width: 100%; text-align:center; height: auto;"></div>
-    <img src="assets/SSOrbitronWhite.png" style="width: 95%; margin-left: auto; margin-right: auto; display: block;" alt="">
-  </a>
-    <ul class="side-nav">
-        <li><a routerLink="/" (click)="onNav()">Home</a></li>
-        <li><a routerLink="/booking" (click)="onNav()">Booking</a></li>
-        <li style="text-align:left; line-height: 1.2;"><a routerLink="/Events" (click)="onNav()">Events</a></li>
-
-        <li><a routerLink="/ContactUs" (click)="onNav()">Contact</a></li>
-        <li><a routerLink="/FAQ" (click)="onNav()">FAQ</a></li>
-
-    </ul>
-    <div class="social_media">
-      <a href="https://www.instagram.com/suburbanswings/"><fa-icon class="socialLink" [icon]="faInstagram" size="3x" style="color: #ffffff"></fa-icon></a>
-    </div>
-</div> -->
 <div class="navigation" [ngClass]="{'navigation--show' : showNav && mobile }">
   <div class="navigation__image">
     <img style="width: 100%" src="assets/natlogo-min.png" alt="">
@@ -30,7 +8,6 @@
 
     </div>
     
-    <!-- <div *ngIf="userIsAuthenticated" class="navigation__account-page"><a routerLink="/Account" (click)="onNav()" >Acct</a></div> -->
   </div>
   
   <ul class="side-nav">
@@ -43,16 +20,9 @@
 
   
   <div class="bottom-buttons">
-    <!-- <a routerLink="/login" class="bottom-buttons__item">Login</a>
-    <a routerLink="/login" class="bottom-buttons__item">Login</a> -->
-    <!-- <ul class="side-nav"> -->
-      <!-- <div *ngIf="!userIsAuthenticated" class="bottom-buttons__item"><a routerLink="/Login" (click)="onNav()" class="bottom-buttons__link">Login</a></div>
-      <div *ngIf="!userIsAuthenticated" class="bottom-buttons__item"><a routerLink="/SignUp" (click)="onNav()" class="bottom-buttons__link">Sign Up</a></div>
-      <div *ngIf="userIsAuthenticated" class="bottom-buttons__item"><a routerLink="/" (click)="onLogout()" class="bottom-buttons__link">Logout</a></div> -->
-      <!-- </ul> -->
+    
     </div>
 </div>
-<!-- <fa-icon *ngIf="mobile" (click)="showNav = !showNav" class="nav-button" style="" [icon]="faBars"></fa-icon> -->
 <svg class="nav-button" *ngIf="mobile" (click)="showNav = !showNav" >
   <use xlink:href="assets/sprite.svg#icon-menu"></use>
 </svg>

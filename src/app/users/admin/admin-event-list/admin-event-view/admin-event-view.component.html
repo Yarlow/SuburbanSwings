@@ -5,6 +5,8 @@
       Click a day or total to see the players on the selected item
     </p>
 
+    <button style="font-size: 1.5rem; padding: 0.3rem 0.2rem; margin-bottom: 1.5rem;" (click)="onEditEvent()">Edit Event</button>
+
     <p class="totalPlayers" (click)="showAllPlayers()">Total teams: {{teams.length}}</p>
 
     <div *ngFor="let day of dayCount | keyvalue" [value]="[day.key, day.value]">

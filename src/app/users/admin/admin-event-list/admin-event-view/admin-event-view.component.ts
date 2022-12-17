@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { SSEvent } from 'src/app/events/event.model';
 import { EventsService } from 'src/app/events/events.service';
 import { SSTeam } from 'src/app/events/team.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-event-view',
@@ -29,7 +30,7 @@ export class AdminEventViewComponent implements OnInit {
 
   displayTeams: SSTeam[]
 
-  constructor(private eventsService: EventsService) { }
+  constructor(private eventsService: EventsService, private router: Router) { }
 
   ngOnInit(): void {
     this.eventsService.getTeamsByEvent(this.eventElement._id).subscribe(foundTeams => {
@@ -129,6 +130,10 @@ export class AdminEventViewComponent implements OnInit {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
+  }
+
+  onEditEvent() {
+    this.router.navigate(['admin/event', this.eventElement._id])
   }
 
 }
