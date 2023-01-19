@@ -1,6 +1,7 @@
 .section-events {
   background-color: $color-grey-light-2;
   padding: 2.5rem;
+  min-height: 100vh;
 }
 
 .events {
@@ -70,9 +71,11 @@
 
     &--hide {
       opacity: 0;
+      visibility: hidden;
     }
 
     &--show {
+      visibility: visible;
       opacity: 1;
     }
 
@@ -90,6 +93,11 @@
 
       &-show {
         opacity: 1;
+        // display: block;
+      }
+      &-hide {
+        opacity: 0;
+        // display: none;
       }
       
     }
@@ -116,7 +124,7 @@
       top:50%;
       left: 50%;
       width: 75%;
-      height: 80%;
+      max-height: 80%;
       background-color: #fff;
       transform: translate(-50%, -50%) scale(.25);
       box-shadow: 0 2rem 4rem rgb(0 0 0 / 20%);
@@ -128,6 +136,10 @@
 
       &-show {
         transform: translate(-50%, -50%) scale(1);
+      }
+
+      &-hide {
+        transform: translate(-50%, -50%) scale(0);
       }
 
     }

@@ -50,6 +50,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'Booking/:bookingType',
+    component: BookingComponent,
+    data: {
+      headerText: 'Book an Appointment'
+    }
+  },
+  {
     path: 'ContactUs',
     component: ContactUsComponent,
     data: {

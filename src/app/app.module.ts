@@ -65,6 +65,10 @@ import { UserTeamsComponent } from './users/account/user-teams/user-teams.compon
 import { EventCountdownComponent } from './events/event-signup/event-countdown/event-countdown.component';
 import { PhoneMaskDirective } from './directives/phone-mask.directive';
 import { EventsListItemInfoComponent } from './events/events-list/events-list-item/events-list-item-info/events-list-item-info.component';
+import { PastEventsComponent } from './home/past-events/past-events.component';
+import { OutdoorComponent } from './booking/outdoor/outdoor.component';
+import { IndoorComponent } from './booking/indoor/indoor.component';
+import { GrizzlyBirdComponent } from './booking/grizzly-bird/grizzly-bird.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +112,11 @@ import { EventsListItemInfoComponent } from './events/events-list/events-list-it
     UserTeamsComponent,
     EventCountdownComponent,
     PhoneMaskDirective,
-    EventsListItemInfoComponent
+    EventsListItemInfoComponent,
+    PastEventsComponent,
+    OutdoorComponent,
+    IndoorComponent,
+    GrizzlyBirdComponent
   ],
   imports: [
     BrowserModule,

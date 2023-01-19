@@ -8,17 +8,18 @@ export class BookingService {
 
   constructor(private http: HttpClient){}
 
-  createReservation(resForm: NgForm) {
+  createReservation(resForm: NgForm, bookingType: string) {
     const reservationInfo = {
-      name: resForm.value.name,
-      contactInfo: resForm.value.contactInfo,
-      address: resForm.value.address,
-      date: resForm.value.date,
-      reservationLength: resForm.value.reservationLength,
-      additionalInfo: resForm.value.additionalInfo
-
+      bookingType: bookingType,
+      form: resForm.value
     }
-    return this.http.post<{message: string}>(environment.apiUrl + 'reservation', reservationInfo)
+    // name: resForm.value.name,
+    // contactInfo: resForm.value.contactInfo,
+    // address: resForm.value.address,
+    // date: resForm.value.date,
+    // reservationLength: resForm.value.reservationLength,
+    // additionalInfo: resForm.value.additionalInfo
+    return this.http.post<{message: string}>(environment.apiUrl + 'bookings/inquire', reservationInfo)
 
   }
 

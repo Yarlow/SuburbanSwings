@@ -1,0 +1,108 @@
+
+<h3 class="heading-tertiary">GrizzlyBird Booking</h3>
+<p class="paragraph u-margin-bottom-small">GrizzlyBird Brewing is the permanent Location Of the Suburban Swings Golf Simulator, conveniently Located at 5901 Chandler Ct, Westerville, OH 43082  </p>
+
+<p class="paragraph u-margin-bottom-xsmall">The simulator is available anytime GrizzlyBird Brewing is open, their normal hours are as follows:</p>
+
+<p class="paragraph u-margin-bottom-xsmall">Fridays and Saturdays are open for reservations </p>
+<p class="paragraph u-margin-bottom-xsmall">Wednesday, Thursday and Sunday we run golf leagues during the winter months.</p>
+
+
+<table class="booking__gbTable">
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">Monday</td>
+        <td class="booking__gbTable--time paragraph">CLOSED</td>
+    </tr>
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">TUESDAY</td>
+        <td class="booking__gbTable--time paragraph">CLOSED</td>
+    </tr>
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">Wednesday</td>
+        <td class="booking__gbTable--time paragraph">3–9PM</td>
+    </tr>
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">Thursday</td>
+        <td class="booking__gbTable--time paragraph">3–9PM</td>
+    </tr>
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">Friday</td>
+        <td class="booking__gbTable--time paragraph">3–10PM</td>
+    </tr>
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">Saturday</td>
+        <td class="booking__gbTable--time paragraph">12–10PM</td>
+    </tr>
+    <tr class="booking__gbTable--DOW">
+        <td class="booking__gbTable--time paragraph">Sunday</td>
+        <td class="booking__gbTable--time paragraph">12–6PM</td>
+    </tr>
+</table>
+
+<h3 class="heading-tertiary">Fill out this form to start booking</h3>
+    <div class="booking__form">
+      <form (submit)="onSubmitReservation(resForm)" #resForm="ngForm">
+        <mat-form-field>
+          <input
+          placeholder="Name"
+          ngModel
+          name="name"
+          type="text"
+          matInput
+          color="accent"
+          required>
+          <mat-error>Please enter your name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+          placeholder="Email or phone"
+          ngModel
+          name="contactInfo"
+          type="text"
+          matInput
+          color="primary"
+          required>
+          <mat-error>Please enter your email</mat-error>
+        </mat-form-field>
+
+        <div class="dateTime">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input
+            matInput
+            ngModel
+            name="date"
+            [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Choose an appointment length</mat-label>
+            <mat-select
+            ngModel
+            name="reservationLength">
+            <mat-option value="1">1 Hour</mat-option>
+            <mat-option value="2">2 Hours</mat-option>
+            <mat-option value="3">3 Hours</mat-option>
+            <mat-option value="4">4 Hours</mat-option>
+            <mat-option value="5">5 Hours</mat-option>
+            <mat-option value="6">6 Hours</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <mat-form-field>
+        <textarea name="name" rows="8" cols="80"
+        placeholder="Any additional info"
+        ngModel
+        name="additionalInfo"
+        type="text"
+        matInput
+        color="primary">
+
+      </textarea>
+    </mat-form-field>
+      <button type="submit" class="btn btn--pink">Submit</button>
+      <!-- <button class="submitButton" mat-raised-button type="submit" color="accent">Submit</button> -->
+    </form>
