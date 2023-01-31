@@ -69,6 +69,9 @@ import { PastEventsComponent } from './home/past-events/past-events.component';
 import { OutdoorComponent } from './booking/outdoor/outdoor.component';
 import { IndoorComponent } from './booking/indoor/indoor.component';
 import { GrizzlyBirdComponent } from './booking/grizzly-bird/grizzly-bird.component';
+import { PopupComponent } from './home/popup/popup.component';
+import { MobileComponent } from './booking/mobile/mobile.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +119,10 @@ import { GrizzlyBirdComponent } from './booking/grizzly-bird/grizzly-bird.compon
     PastEventsComponent,
     OutdoorComponent,
     IndoorComponent,
-    GrizzlyBirdComponent
+    GrizzlyBirdComponent,
+    PopupComponent,
+    MobileComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

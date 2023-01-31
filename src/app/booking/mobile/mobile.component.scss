@@ -1,0 +1,88 @@
+mat-form-field, input {
+    width:100%
+  }
+  
+  mat-form-field, textarea {
+    width:100%
+  }
+  
+  .bookingContainer {
+    /* width: 50%; */
+    width:600px;
+    margin: 25px auto;
+    margin-bottom:0;
+  }
+  
+  mat-card {
+    margin-top: 30px;
+    /* background-color: #057a82; */
+    /* color: white; */
+  }
+  /* ::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+  color: white !important
+  }
+  
+  ::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: white;
+  } */
+  
+  .submitButton {
+    position: relative;
+  
+  }
+  
+  .cityStateZip{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .dateTime{
+    display: inline-flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .bookingContainer {
+      width:90%;
+      position: relative;
+      top: 10%;
+      margin: 0 5%;
+      /* height: 10%; */
+      /* position: relative; */
+      /* display: none */
+    }
+  
+    .cityStateZip{
+      flex-direction: column;
+      gap: 0;
+    }
+  
+    .dateTime{
+      /* display: none; */
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+  
+  .tertiary-header {
+    font-size: 24px;
+  }
+  
+  .primary-header {
+    font-size: 32px;
+  }
+  
+  .deal-info {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+  
+  .dealwrapper {
+    margin-top: 24px;
+  }
+  

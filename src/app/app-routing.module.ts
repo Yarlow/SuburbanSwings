@@ -19,6 +19,7 @@ import { AdminComponent } from './users/admin/admin.component';
 import { AuthGuard } from './users/auth.guard';
 import { LoginComponent } from './users/login/login.component';
 import { CreateEventComponent } from './users/admin/create-event/create-event.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -153,6 +154,13 @@ const routes: Routes = [
     path: 'Account',
     component: AccountComponent,
     canActivate: [AuthGuard],
+    data: {
+      headerText: 'My Account'
+    }
+  },
+  {
+    path: 'Test',
+    component: TestComponent,
     data: {
       headerText: 'My Account'
     }

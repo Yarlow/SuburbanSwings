@@ -26,6 +26,10 @@
 <svg class="nav-button" *ngIf="mobile" (click)="showNav = !showNav" >
   <use xlink:href="assets/sprite.svg#icon-menu"></use>
 </svg>
+
+<!-- <app-popup></app-popup> -->
+
+
 <div class="content" [ngClass]="{'content--hide' : showNav && mobile}">
 
   <div class="info">

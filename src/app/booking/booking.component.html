@@ -2,25 +2,53 @@
 
   <div class="booking">
     <div class="booking__header">
-      <div class="booking__header--title u-center-text">
-        <h2 class="heading-secondary">Get started booking your event</h2>
+      <div class="booking__header--img">
+        <!-- <img class="booking__header--img" src="assets/grillchill.jpg" alt="Booking Header Simulator Picture"> -->
+        
       </div>
+      <div class="header__text-box">
+        <h1 class="heading-primary booking__header--primary">
+          <span class="heading-primary--main">Start your tour</span>
+          
+        </h1>
+        
+      </div>
+      <!-- <div class=" u-center-text booking__header--div">
+        <h2 class="booking__header--title heading-secondary">Get started booking your event</h2>
+      </div> -->
+      <!-- <div class="booking__header--img-div">
+      </div> -->
+
+      <div class="booking__options-1--mobile">
+        <a class="btn btn--blue btn--animated" (click)="onBookingSelect('Mobile')">Mobile Booking</a>
+      </div>
+      <div class="booking__options-1--grizzlyBird">
+        <a class="btn btn--blue btn--animated" (click)="onBookingSelect('GrizzlyBird')">GrizzlyBird Booking</a>
+
+      </div>
+
     </div>
 
-    <div class="booking__details u-margin-bottom-medium">
+    <!-- <div class="booking__details u-margin-bottom-medium">
       <h2 class="heading-tertiary">Booking Options</h2>
 
       <p class="paragraph u-margin-bottom-small">Please select one of the following booking options for more information</p>
 
       <ul class="booking__options">
         <li class="booking__options--item" (click)="onBookingSelect('GrizzlyBird')">GrizzlyBird  *grizzly image?</li>
-        <li class="booking__options--item" (click)="onBookingSelect('Indoor')">Indoor Rentals   **indoor setup?</li>
-        <li class="booking__options--item" (click)="onBookingSelect('Outdoor')">Outdoor Rentals   **outdoor?</li>
+        <li class="booking__options--item" (click)="onBookingSelect('Mobile')">Mobile Rentals   **indoor setup?</li>
       </ul>
+    </div> -->
+    <div class="booking__content">
+      <p class="paragraph" *ngIf="selectedBooking === '' || !selectedBooking">We are dedicated to supplying the best golfing experience possible with out simulators. 
+        Click on one of the options above to see how we can best serve you to make your event <b><i>GOLFTASTIC</i></b>
+      </p>
+      <app-grizzly-bird *ngIf="selectedBooking === 'GrizzlyBird'"></app-grizzly-bird>
+      <app-indoor *ngIf="selectedBooking === 'Indoor'"></app-indoor>
+      <app-outdoor *ngIf="selectedBooking === 'Outdoor'"></app-outdoor>
+      <app-mobile *ngIf="selectedBooking === 'Mobile'"></app-mobile>
+
     </div>
-    <app-grizzly-bird *ngIf="selectedBooking === 'GrizzlyBird'"></app-grizzly-bird>
-    <app-indoor *ngIf="selectedBooking === 'Indoor'"></app-indoor>
-    <app-outdoor *ngIf="selectedBooking === 'Outdoor'"></app-outdoor>
   </div>
 
 

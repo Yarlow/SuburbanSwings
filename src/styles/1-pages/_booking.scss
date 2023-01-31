@@ -1,5 +1,5 @@
 .section-booking {
-  padding-top: 6rem;
+  // padding-top: 6rem;
   padding-bottom: 6rem;
   background-color: $color-grey-light-2;
   min-height: 100vh;
@@ -7,10 +7,100 @@
 
 .booking {
   margin: auto;
-  width: 50%;
+  width: 100%;
+
+  &__header {
+
+    &--img {
+      background-image: url('../../assets/GrizzlyBird-min.jpg');
+      filter: blur(3px);
+      background-size: cover;
+
+      height: 100%;
+      // background-position: top;
+      background-position: top;
+      position: relative;
+
+
+    }
+    height: 95vh;
+    overflow: hidden;
+
+    position: relative;
+    // top: -3rem;
+    &--div {
+      background-color: $color-grey-light-1;
+    }
+
+    &--title {
+      z-index: 100000000000;
+    }
+    &--img {
+      width: 100%;
+      object-fit: cover;
+      background-position: center;
+      // position: relative;
+      // top: -3rem;
+      // z-index: 1;
+    }
+
+    &--primary {
+      white-space: pre-wrap;
+    }
+  }
+
+  &__content {
+    max-width: 75%;
+    margin: auto;
+    margin-top: 10rem;
+  }
+
+  &__options-1 {
+    // display: flex;
+    // position: absolute;
+    // bottom: 5%;
+    // justify-content: space-around;
+    // width: 100%;
+
+    &--grizzlyBird {
+      position: absolute;
+      bottom: 6rem;
+      right: 6rem;
+      text-align: center;
+      @media only screen and (max-width: $bp-large) {
+        bottom: 6rem;
+        right: 50%;
+        transform: translate(50%, 50%);
+      }
+    }
+
+    &--mobile {
+      position: absolute;
+      bottom: 6rem;
+      left: 6rem;
+      text-align: center;
+      @media only screen and (max-width: $bp-large) {
+        bottom: 16rem;
+        left: 50%;
+        transform: translate(-50%, 50%);
+      }
+    }
+
+    &--item {
+      cursor: pointer;
+      font-size: 8rem;
+      background-image: linear-gradient(to bottom,rgba($color-primary-light, .8), rgba($color-primary-dark, .8));
+      transition: all .4s;
+      border-radius: 100000px;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
 
   @media only screen and (max-width: $bp-mobile) {
-    width: 80%;
+    // width: 80%;
   }
 
   &__deals {
@@ -63,5 +153,59 @@
 
   &__gbTable {
     border-spacing: 1rem;
+  }
+
+  &__mobile {
+    &--bay-title {
+      font-size: 2rem;
+    }
+
+    &--bay-pic {
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+
+  &__mobile-list {
+    list-style: none;
+    font-size: $default-font-size;
+    margin-bottom: 1.6rem;
+  }
+
+}
+
+.booking2 {
+
+  &__header{
+    height: 95vh;
+    overflow: hidden;
+    &--images {
+      display: flex;
+
+    }
+
+    &--image-container {
+      max-width: 50%;
+      object-fit: cover;
+      position: relative;
+    }
+    
+    &--image {
+      max-width: 100%;
+      object-fit: cover;
+      filter: blur(3px);
+    }
+
+    &--option-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-size: 5rem;
+      color: white;
+      background-color: rgba($color-grey-light-1, .2);
+      box-shadow: 10px 5px 5px $color-grey-light-1;
+    }
   }
 }

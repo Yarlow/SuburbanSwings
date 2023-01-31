@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ViewportScroller } from '@angular/common';
 
-import { BookingService } from '../../booking.service'
+import { BookingService } from '../../booking.service';
 
 @Component({
-  selector: 'app-grizzly-bird',
-  templateUrl: './grizzly-bird.component.html',
-  styleUrls: ['./grizzly-bird.component.scss']
+  selector: 'app-mobile',
+  templateUrl: './mobile.component.html',
+  styleUrls: ['./mobile.component.scss']
 })
-export class GrizzlyBirdComponent implements OnInit {
+export class MobileComponent implements OnInit {
 
-  constructor(private bookingService: BookingService, private _snackBar: MatSnackBar, private readonly _viewportScroller: ViewportScroller) { }
+  constructor(private readonly _viewportScroller: ViewportScroller, private bookingService: BookingService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     setTimeout(() =>  {
-      this._viewportScroller.scrollToAnchor("gbAnchor")
+      this._viewportScroller.scrollToAnchor("mobileAnchor")
 
     }, 5)
   }
@@ -26,7 +26,7 @@ export class GrizzlyBirdComponent implements OnInit {
       return
     }
 
-    this.bookingService.createReservation(resForm, "GrizzlyBird").subscribe( (response) =>{
+    this.bookingService.createReservation(resForm, "Mobile").subscribe( (response) =>{
       this._snackBar.open('Message Sent', '', {
         duration: 5000
       })
@@ -45,5 +45,4 @@ export class GrizzlyBirdComponent implements OnInit {
     );
 
   }
-
 }

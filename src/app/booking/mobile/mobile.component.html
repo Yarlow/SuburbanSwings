@@ -1,10 +1,49 @@
+<div id="mobileAnchor">
+</div>
 
-<h3 class="heading-tertiary">Outdoor Bookings</h3>
-<p class="paragraph u-margin-bottom-small">Our passion is bringing  the entertainment to all of your parties and events with our portable setup. </p>
+<h3 class="heading-tertiary">Let us bring the party to you</h3>
 
-<p class="paragraph u-margin-bottom-small">Our outdoor set up is used in large spaces such as backyards and can be rented anytime of day </p>
+<div class="">
+    <p class="paragraph">Thank you for taking the first steps to allow us to create an experience for you. </p>
+    <p class="paragraph">Here is information about how our events are organized:</p>
+</div>
 
-<p class="paragraph u-margin-bottom-small">Events have a 4 hour minimum fee, additional hours can be added</p>
+<br>
+<h3 class="heading-tertiary">Pricing</h3>
+<p class="paragraph">4 hour minimum for $1,000 <br>Additional hours are $150 per hour</p>
+
+
+<h3 class="heading-tertiary">What we bring</h3>
+<ul class="booking__mobile-list">
+    <li class="booking__mobile-list--item">Golf Simulator</li>
+    <li class="booking__mobile-list--item">Golf Clubs</li>
+    <li class="booking__mobile-list--item">Golf Attendant/Caddie</li>
+    <li class="booking__mobile-list--item">Putting Mat (4ft x 12ft)</li>
+</ul>
+
+<h3 class="heading-tertiary">Popular Experiences</h3>
+<ul class="booking__mobile-list">
+    <li class="booking__mobile-list--item">Closest to the Pin Competitions</li>
+    <li class="booking__mobile-list--item">Longest Drive Competitions</li>
+    <li class="booking__mobile-list--item">Straight Up Golfing on any course in our library</li>
+    <li class="booking__mobile-list--item">Mix and Match</li>
+</ul>
+
+
+
+<h3 class="heading-tertiary">Booking Options and Bays</h3>
+<p class="paragraph">Our team will show up 1.5 hours before the scheduled event start time to set-up our golf simulator, and will stay during the whole duration of your event as an attendant to your competitions or caddie for your golf team. Once the event is finished it takes about 45 minutes to teardown our set-up and be gone with the wind.</p>
+
+<p class="booking__mobile--bay-title">Simulator Bay 1</p>
+<p class="paragraph">Size: 12FT Wide, 15FT Length, 10FT height</p>
+
+<img src="assets/IndoorBay-min.jpg" alt="Indoor Bay Picture" class="booking__mobile--bay-pic">
+
+<p class="booking__mobile--bay-title">Inflatable Simulator Bay 2</p>
+<p class="paragraph">Size: 15FT Wide, 17FT Length, 11 FT Height</p>
+
+<img src="assets/InflatableBay.jpg" alt="Indoor Bay Picture" class="booking__mobile--bay-pic">
+
 
 <h3 class="heading-tertiary">Fill out this form to start booking</h3>
     <div class="booking__form">
@@ -104,6 +143,16 @@
         </mat-form-field>
       </div>
 
+      <mat-form-field appearance="fill">
+        <mat-label>Simulator Preference</mat-label>
+        <mat-select
+        ngModel
+        name="simulatorPreference">
+        <mat-option value="SB1">Simulator Bay 1 (best for inside)</mat-option>
+        <mat-option value="ISB2">Inflatable Bay (best for outside)</mat-option>
+      </mat-select>
+    </mat-form-field>
+
       <mat-form-field>
         <textarea name="name" rows="8" cols="80"
         placeholder="Any additional info"
@@ -119,3 +168,7 @@
       <!-- <button class="submitButton" mat-raised-button type="submit" color="accent">Submit</button> -->
     </form>
     </div>
+    
+<!-- <app-indoor></app-indoor>
+
+<app-outdoor></app-outdoor> -->
